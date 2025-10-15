@@ -58,6 +58,7 @@ Each tag has an **opening** and **closing** form:
 ```plaintext
 01-HTML/
 ├── README.md
+├── capstone-project/
 ├── notes/
 │   ├── 01-intro-to-HTML.md
 │   ├── 02-intermediate-HTML.md
@@ -90,8 +91,17 @@ Each tag has an **opening** and **closing** form:
 - ***Each subfolder contains:***
 
   - `index.html` — your implementation
-  - `solution.html` — reference solution (if available)
   - `goal.png` — visual reference of expected result
+
+### 🏆 capstone-project/
+
+A comprehensive final project that brings together all HTML concepts learned throughout the module.
+
+**Contains:**
+
+- `index.html` — main project file
+- Additional HTML pages (if multi-page)
+- `README.md` — project requirements and instructions
 
 ---
 
