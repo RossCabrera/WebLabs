@@ -1,67 +1,202 @@
-# ✏️ Topic: Multi-Page Websites
+# ✏️ Multi-Page Websites Study Notes
 
-## 🌟 Cues / Questions
+## 📚 Table of Contents
 
-- What is the difference between absolute and relative file paths?  
-- How do we link multiple pages together?  
-- What is an HTML boilerplate and why is it important?  
-- How can I host a website for free using GitHub?
-
----
-
-## 📝 Notes
-
-### 🗂️ Computer File Paths
-
-- File paths identify the exact **location of files or folders** on a computer.  
-- **Absolute paths** start from the root directory and include the full path.  
-- **Relative paths** are written **relative to the current file’s location**, making them more flexible for web projects.  
-- Use:
-  - `./` → current directory  
-  - `../` → parent directory  
-- Relative paths are **preferred in web development** for better portability.
+- [Computer File Paths](#computer-file-paths)
+- [What Are Webpages?](#what-are-webpages)
+- [HTML Boilerplate](#html-boilerplate)
+- [Hosting Your Website with GitHub](#hosting-your-website-with-github)
 
 ---
 
-### 🌐 What Are Webpages?
+## 🗂️ Computer File Paths {#computer-file-paths}
 
-- A multi-page website is made of **multiple HTML files** linked together through navigation.  
-- The anchor tag `<a>` uses the `href` attribute to **link to other pages**.  
-- The image tag `<img>` uses the `src` attribute to **display images**.  
-- Combining both lets you create **clickable image links**:  
-  `<a href="about.html"><img src="logo.png" alt="About Us"></a>`  
-- Understanding **relative file paths** ensures links and images work correctly within folders.
+> **💡 Key Concept:** File paths identify the **exact location** of files or folders on a computer.
+
+### 📊 Path Types
+
+| Type         | Description                   | Example                                 |
+| --------     | ----------------------------- | --------------------------------------- |
+| **Absolute** | Full path from root directory | `C:/Users/Documents/project/index.html` |
+| **Relative** | Path relative to current file | `./images/photo.jpg` or `../about.html` |
+
+### 🧭 Relative Path Symbols
+
+```html
+<!-- Current directory -->
+./file.html
+
+<!-- Parent directory -->
+../folder/file.html
+```
+
+### 📋 Key Rules
+
+- **Relative paths are preferred** in web development for portability
+- Use `./` for current directory
+- Use `../` for parent directory
+- Relative paths work across different systems
+
+### 🧾 Quick Summary
+
+```text
+./images/logo.png     <!-- Current folder → images → logo.png -->
+../about.html         <!-- Parent folder → about.html -->
+```
+
+**Best Practice:** Always use relative paths in web projects
 
 ---
 
-### 🏗️ HTML Boilerplate
+## 🌐 What Are Webpages? {#what-are-webpages}
 
-- The **HTML boilerplate** is the standard starting structure for all HTML documents.  
-- Key parts include:
-  - `<!DOCTYPE html>` → declares the document type (HTML5).  
-  - `<html lang="en">` → root element, defines the language.  
-  - `<head>` → holds metadata (like charset and title).  
-  - `<body>` → contains visible page content.  
-- Proper **nesting and indentation** make your code more readable.  
-- In VS Code, type `!` and press **Enter** to auto-generate the boilerplate.  
-- Some older meta tags (like those for IE compatibility) are now deprecated and can be safely removed.
+> **💡 Key Concept:** Multi-page websites are **multiple HTML files** linked together.
+
+### 🔗 Linking Pages
+
+| Element | Attribute | Purpose |
+| ------- | --------- | ------- |
+| `<a>` | `href` | Links to other pages |
+| `<img>` | `src` | Displays images |
+
+### 💬 Examples
+
+```html
+<!-- Link to another page -->
+<a href="about.html">About Us</a>
+
+<!-- Display an image -->
+<img src="logo.png" alt="Company Logo">
+
+<!-- Clickable image link -->
+<a href="about.html">
+  <img src="logo.png" alt="About Us">
+</a>
+```
+
+### 🔧 Navigation Structure
+
+```html
+<!-- Using relative paths -->
+<nav>
+  <a href="./index.html">Home</a>
+  <a href="./about.html">About</a>
+  <a href="./contact.html">Contact</a>
+</nav>
+```
+
+### 🧾 Quick Summary
+
+- Use `<a href="">` to link pages
+- Use relative paths for flexibility
+- Combine `<a>` and `<img>` for clickable images
 
 ---
 
-### ☁️ Hosting Your Website with GitHub
+## 🏗️ HTML Boilerplate {#html-boilerplate}
 
-- **Web hosting** makes your site accessible online by placing files on a server.  
-- During **local development**, files are only visible on your own computer.  
-- **GitHub Pages** offers free hosting for static websites:  
-  1. Create a **public repository**.  
-  2. Upload your website files.  
-  3. Ensure your main file is named **`index.html`**.  
-- GitHub automatically renders this as your site’s homepage.
+> **💡 Key Concept:** The boilerplate is the **standard starting structure** for all HTML documents.
+
+### 📝 Essential Components
+
+| Component | Purpose |
+| --------- | ------- |
+| `<!DOCTYPE html>` | Declares HTML5 document type |
+| `<html lang="en">` | Root element with language |
+| `<head>` | Contains metadata |
+| `<body>` | Contains visible content |
+
+### 🔤 Standard Boilerplate
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Title</title>
+</head>
+<body>
+  <!-- Your content here -->
+</body>
+</html>
+```
+
+### ✨ VS Code Shortcut
+
+```html
+<!-- Type ! and press Enter to auto-generate -->
+!
+```
+
+### 📋 Key Rules
+
+- **Always start with `<!DOCTYPE html>`**
+- Use proper nesting and indentation
+- Include charset UTF-8 for character encoding
+- Set viewport for responsive design
+- Remove deprecated meta tags (like IE compatibility)
+
+### 🧾 Quick Summary
+
+The boilerplate provides structure for every HTML page with proper document declaration, metadata, and content areas.
+
+**📖 [MDN: HTML Document Structure](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure)**
+
+---
+
+## ☁️ Hosting Your Website with GitHub {#hosting-your-website-with-github}
+
+> **💡 Key Concept:** **GitHub Pages** offers free hosting for static websites.
+
+### 🎯 Development vs Hosting
+
+| Stage | Location | Access |
+| ----- | -------- | ------ |
+| **Local Development** | Your computer | Only you |
+| **Web Hosting** | Server online | Everyone |
+
+### 🚀 GitHub Pages Setup
+
+```text
+1. Create a public repository
+2. Upload your website files
+3. Name your main file: index.html
+4. GitHub automatically serves it as homepage
+```
+
+### 💬 Example Structure
+
+```text
+my-website/
+├── index.html    ← Main page (required)
+├── about.html
+├── contact.html
+└── images/
+    └── logo.png
+```
+
+### 📋 Key Requirements
+
+- Repository must be **public**
+- Main file must be named **`index.html`**
+- All files uploaded to repository
+- GitHub automatically renders the site
+
+### 🧾 Quick Summary
+
+GitHub Pages provides free hosting for static sites by uploading files to a public repository with `index.html` as the homepage.
+
+**📖 [GitHub Pages Documentation](https://pages.github.com/)**
 
 ---
 
 ## 🔑 Summary
 
-Multi-page websites use multiple linked HTML files organized through proper **file paths**.  
-The **HTML boilerplate** provides the foundation for every page, and **GitHub Pages** makes it easy to host your projects online for free.  
-Understanding how pages connect and how hosting works is key to building complete, real-world websites.
+Multi-page websites connect multiple HTML files using **relative file paths** for navigation and images.  
+Every page starts with the **HTML boilerplate** structure, and **GitHub Pages** makes hosting simple and free.  
+Understanding paths, structure, and hosting enables you to build and publish complete websites.
+
+**📖 [MDN Web Docs on HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)**
+
+---

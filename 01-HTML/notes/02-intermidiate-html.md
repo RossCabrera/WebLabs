@@ -1,83 +1,122 @@
-# ✏️ Topic: Intermediate HTML
+# ✏️ HTML Intermediate Study Notes
 
-## 🌟 Cues / Questions  
+## 📚 Table of Contents
 
-- How do unordered and ordered lists work in HTML?  
-- How does nesting affect readability and structure?  
-- What is the purpose of anchor (`<a>`) elements and their attributes?  
-- How do image (`<img>`) elements work and why is `alt` important?  
+- [List Elements](#list-elements)
+- [Nesting and Indentation](#nesting-indentation)
+- [Anchor Elements](#anchor-elements)
+- [Image Elements](#image-elements)
 
 ---
 
-## 📝 Notes  
+## 📋 List Elements {#list-elements}
 
-### 📋 List Elements  
+> **💡 Key Concept:** Lists organize content with **bullets** or **numbers**.
 
-- `<ul>` → unordered list (bullet points)  
-- `<ol>` → ordered list (numbers or letters)  
-- `<li>` → list item inside `<ul>` or `<ol>`  
-- Use proper indentation to **improve readability**  
-- Ordered lists can use `start` attribute to define starting number  
-- **Example:**
+### 🔤 List Types
+
+| Element | Type           | Display        |
+| ------- | -------------- | -------------- |
+| `<ul>`  | Unordered list | Bullet points  |
+| `<ol>`  | Ordered list   | Numbers        |
+| `<li>`  | List item      | Single item    |
+
+### 💬 Examples
 
 ```html
-    <ol start="3">
-    <li>Item three</li>
-    <li>Item four</li>
-    </ol>
+<ul>
+  <li>Apple</li>
+  <li>Banana</li>
+</ul>
+
+<ol start="3">        <!-- Start from 3 -->
+  <li>Item three</li>
+  <li>Item four</li>
+</ol>
 ```
 
-### 🏗️ Nesting and Indentation
+### 🧾 Quick Summary
 
-- **Nested lists:** embed a list inside a `<li>` of another list
-- Proper indentation helps **readability and debugging**
-- Editors like Visual Studio Code auto-indent nested lists
-- Indentation also helps catch **missing closing tags**
-- **Example:**
-  
- ```html
+Use proper indentation for readability
+
+---
+
+## 🏗️ Nesting and Indentation {#nesting-indentation}
+
+> **💡 Key Concept:** Nested lists embed one list **inside another** for hierarchy.
+
+### 💬 Example
+
+```html
+<ul>
+  <li>Fruits
     <ul>
-    <li>Fruits
-        <ul>
-        <li>Apple</li>
-        <li>Banana</li>
-        </ul>
-    </li>
+      <li>Apple</li>
+      <li>Banana</li>
     </ul>
+  </li>
+</ul>
 ```
 
-### 🔗 Anchor Elements (<a>)
+### 🧾 Quick Summary
 
-- Used to create **hyperlinks**
-- **Key attribute:** `href` → URL or path the link points to
-- Global attributes (e.g., `draggable`) can be applied to any element
-- **Example:**
+Proper indentation improves readability and helps catch missing closing tags
+
+---
+
+## 🔗 Anchor Elements {#anchor-elements}
+
+> **💡 Key Concept:** The `<a>` tag creates **hyperlinks**.
+
+### 🔑 Key Attribute
+
+| Attribute | Purpose          | Example              |
+| --------- | ---------------- | -------------------- |
+| `href`    | URL or path      | `href="about.html"`  |
+
+### 💬 Examples
 
 ```html
 <a href="about.html">About Page</a>
+<a href="https://example.com">Visit Site</a>
 ```
 
-- [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a)
+### 🧾 Quick Summary
 
-### 🖼️ Image Elements (`<img>`)
+Global attributes (e.g., `draggable`) can be applied to any element
 
-- Adds images to a webpage
-- Key attributes:
-  - `src` → image source (file path or URL)
-  - `alt` → descriptive text for accessibility (screen readers)
-- `<img>` is a self-closing void element; no closing tag required
-- GIFs, PNGs, JPEGs all work the same; GIFs animate automatically
-- **Example:**
+**📖 [MDN: Anchor Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)**
+
+---
+
+## 🖼️ Image Elements {#image-elements}
+
+> **💡 Key Concept:** The `<img>` tag displays images and is a **void element**.
+
+### 🔑 Key Attributes
+
+| Attribute | Purpose                         | Required  |
+| --------- | ------------------------------  | --------  |
+| `src`     | Image source (path or URL)      | ✅ Yes    |
+| `alt`     | Alternative text (accessibility)| ✅ Yes    |
+
+### 💬 Example
 
 ```html
 <img src="cat.gif" alt="A playful cat">
 ```
 
+### 🧾 Quick Summary
+
+- Self-closing void element (no closing tag)
+- GIFs, PNGs, JPEGs all work; GIFs animate automatically
+- `alt` is essential for screen readers
+
 ---
 
 ## 🔑 Summary
 
-Intermediate HTML introduces lists, nesting, links, and images.
+Intermediate HTML introduces lists, nesting, links, and images.  
 Proper use of indentation, attributes, and semantic elements improves readability, accessibility, and maintainability of HTML documents.
 
 ---
