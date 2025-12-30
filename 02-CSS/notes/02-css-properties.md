@@ -1,197 +1,245 @@
-# ✏️ Topic: CSS Properties
+# ✏️ CSS Properties Study Notes
 
-## 🌟 Cues / Questions
+## 📚 Table of Contents
 
-- What are CSS colors and how are they applied?
-- How do font properties work and what units should be used?
-- How to inspect and debug CSS in Chrome DevTools?
-- What is the CSS Box Model and how do margin, padding, and border work?
-
----
-
-## 📝 Notes
-
-### 🎨 CSS Colors
-
-CSS colors style **text** and **backgrounds** on a webpage.
-
-#### 🧩 CSS Color Properties
-
-1. **Text Color** (`color`)
-
-   ```css
-   h1 {
-     color: red;
-   }
-   ```
-
-2. **Background Color** (`background-color`)
-
-   ```css
-   body {
-     background-color: antiquewhite;
-   }
-   ```
-
-#### 🎯 CSS Rule Structure
-
-```css
-property: value;
-```
-
-#### 🏷️ Named Colors
-
-- Examples: `red`, `blue`, `whitesmoke`, `cornflowerblue`
-- Easy to use, full list: [MDN Named Colors](https://developer.mozilla.org/en-US/docs/Web/CSS/named-color)
-
-#### 🔢 Hex Colors
-
-- Format: `#RRGGBB` → RGB values
-
-```css
-h2 {
-  color: #5d3891;
-}
-```
-
-#### 🎨 Color Palettes
-
-- Recommended: [colorhunt.co](https://colorhunt.co)
-- Free, designer-made, with hex codes ready to use
+- [CSS Colors](#css-colors)
+- [CSS Font Properties](#css-font-properties)
+- [Inspecting CSS with Chrome DevTools](#inspecting-css)
+- [CSS Box Model](#css-box-model)
 
 ---
 
-### 🔤 CSS Font Properties
+## 🎨 CSS Colors {#css-colors}
 
-#### 📏 Font Size (`font-size`)
+> **💡 Key Concept:** CSS colors style both **text** and **backgrounds**.
 
-**Units:**
-
-- **Pixels (px)** → fixed size
-- **Points (pt)** → print size
-- **Em (em)** → relative to parent
-- **Rem (rem)** ✅ (recommended) → relative to root (`html`)
-
-**Example:**
+### Basic Color Properties
 
 ```css
-h1 {
-  font-size: 2rem;
-}
+h1 { color: red; }                           /* Text color */
+body { background-color: antiquewhite; }     /* Background color */
 ```
 
-#### 🔁 em vs rem
+### Color Formats
 
-- `em` → scales with parent
-- `rem` → scales with root
-- ✅ `rem` avoids unexpected changes in nested elements
+| Format    | Example                         | Use Case                 |
+| --------- | ------------------------------- | ------------------------ |
+| **Named** | `red`, `blue`, `cornflowerblue` | Quick prototyping        |
+| **Hex**   | `#5d3891`, `#FF0000`            | Production (most common) |
+| **RGB**   | `rgb(255, 0, 0)`                | Dynamic colors           |
+| **RGBA**  | `rgba(255, 0, 0, 0.5)`          | With transparency        |
+| **HSL**   | `hsl(0, 100%, 50%)`             | Color adjustments        |
 
-#### ⚖️ Font Weight (`font-weight`)
+#### Hex Format Explained
 
-- **Keywords:** `normal`, `bold`
-- **Numbers:** `100–900`
-- **Relative:** `lighter`, `bolder`
+<p align="center">
+  <img src="../assets/img/hex-format.png" align="center" width="600" hight="100" alt="Box Model">
+</p>
+
+### 🎨 Color Tools
+
+- **[Color Hunt](https://colorhunt.co)** - Ready-made palettes
+- **[Coolors.co](https://coolors.co)** - Generate schemes
+- **[MDN Named Colors](https://developer.mozilla.org/en-US/docs/Web/CSS/named-color)** - Full list
+
+### 🧾 Quick Summary
 
 ```css
-h2 {
-  font-weight: 700;
-}
+/* Common patterns */
+color: red;                          /* Named */
+color: #5d3891;                      /* Hex */
+background-color: rgba(0, 0, 0, 0.5); /* Transparent */
 ```
 
-**📖 Reference:** [MDN Font Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/font)
+---
 
-#### 🖋️ Font Family (`font-family`)
+## 🔤 CSS Font Properties {#css-font-properties}
 
-Specify typeface:
+### 📏 Font Size (`font-size`)
+
+| Unit   | Behavior          | Example   | Recommended?       |
+|--------|-------------------|-----------|:-----------------: |
+| `px`   | Fixed size        | `16px`    | ⚠️                 |
+| `em`   | Relative to parent| `1.5em`   | ⚠️ (compounds)     |
+| `rem`  | Relative to root  | `1.5rem`  | ✅ **YES**         |
+
+#### Why rem is Best
+
+```css
+html { font-size: 16px; }     /* Root size */
+
+h1 { font-size: 2rem; }       /* 32px - always relative to root */
+p { font-size: 1rem; }        /* 16px - predictable */
+small { font-size: 0.875rem; } /* 14px */
+```
+
+**Benefits:** Predictable, accessible, no compounding issues.
+
+### ⚖️ Font Weight (`font-weight`)
+
+| Value      | Name                  | Use Case           |
+|:----------:|---------------------  |------------------  |
+| 100-300    | Thin/Light            | Large display text |
+| **400**    | **Normal**            | **Body text**      |
+| 500-600    | Medium/Semi Bold      | Emphasis           |
+| **700**    | **Bold**              | **Headings**       |
+| 800-900    | Extra Bold/Black      | Maximum impact     |
+
+```css
+p { font-weight: 400; }        /* Normal */
+strong { font-weight: 700; }   /* Bold */
+h1 { font-weight: 900; }       /* Heavy */
+```
+
+### 🖋️ Font Family (`font-family`)
+
+Always include a **fallback chain**:
 
 ```css
 body {
-  font-family: Helvetica, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 ```
 
-- Multi-word fonts need quotes: `"Times New Roman", serif`
-- **Serif** → decorative edges
-- **Sans-serif** → clean, modern
-- Custom fonts via [Google Fonts](https://fonts.google.com)
+#### Generic Families
 
-#### 📐 Text Alignment (`text-align`)
+| Family       | Style                   | Examples                 |
+|------------- |-------------------------|--------------------------|
+| `serif`      | Formal, decorative edges| Times New Roman, Georgia |
+| `sans-serif` | Modern, clean           | Arial, Helvetica         |
+| `monospace`  | Fixed-width (code)      | Courier, Consolas        |
 
-- Options: `left`, `right`, `center`, `start`, `end` (direction-aware)
+#### Using Google Fonts
+
+```html
+<!-- 1. Add to HTML <head> -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+```
 
 ```css
-p {
+/* 2. Use in CSS */
+body { font-family: 'Roboto', sans-serif; }
+```
+
+**📖 [Google Fonts](https://fonts.google.com)**
+
+### 📐 Text Alignment (`text-align`)
+
+```css
+p { text-align: left; }      /* Default */
+h1 { text-align: center; }   /* Centered */
+p { text-align: right; }     /* Right-aligned */
+p { text-align: justify; }   /* Full-width (use cautiously) */
+```
+
+### 🧾 Quick Summary
+
+```css
+/* Recommended font setup */
+html { font-size: 16px; }
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: left;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
   text-align: center;
 }
 ```
 
-**📖 Reference:** [MDN Text Align](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align)
+---
+
+## 🔍 Inspecting CSS with Chrome DevTools {#inspecting-css}
+
+### 🧰 Opening DevTools
+
+| Method                | Shortcut               |
+|---------------------  |----------------------- |
+| **Keyboard (Mac)**    | `Cmd + Option + I`     |
+| **Keyboard (Windows)**| `Ctrl + Shift + I`     |
+| **Function Key**      | `F12`                  |
+| **Right-Click**       | Right-click → Inspect  |
+
+### 🧱 Key Panels
+
+#### Elements Tab
+
+- Shows HTML structure
+- Click elements to inspect
+
+#### Styles Panel
+
+- All CSS rules applied
+- Edit/toggle properties live
+- Crossed-out = overridden
+
+#### Computed Tab
+
+- Final applied styles
+- No crossed-out rules
+- Shows box model diagram
+
+### ✏️ Live Editing
+
+**You can:**
+
+- ✔️ Add/edit properties
+- ✔️ Toggle checkboxes to enable/disable
+- ✔️ Change colors with color picker
+- ✔️ See changes instantly
+
+**⚠️ Important:** Changes are **temporary** (lost on refresh)
+
+### 🛠️ Useful Features
+
+Box Model in DevTools:
+
+- View in Computed tab or Styles panel
+- Color-coded: 🟦 Content | 🟩 Padding | 🟨 Border | 🟧 Margin
+- Hover over diagram sections to highlight on page
+- Click values to edit dimensions live
+
+**Element States:**
+
+- Click `:hov` to simulate `:hover`, `:active`, `:focus`
+
+**CSS Overview:**
+
+- DevTools → ⋮ → More Tools → CSS Overview
+- Shows all colors, fonts used on page
+
+### 🧪 Practice
+
+- **[Just Add CSS](https://appbrewery.github.io/just-add-css/)** - DevTools practice
+- **[CSS Inspection Exercise](https://appbrewery.github.io/css-inspection)** - Find values
+
+### 🧾 Quick Summary
+
+1. Open DevTools (`F12` or Right-click → Inspect)
+2. Use Styles panel to edit CSS live
+3. Check Computed tab for final values
+4. Remember: Changes are temporary!
 
 ---
 
-### 🔍 Inspecting CSS (Chrome DevTools)
+## 📦 CSS Box Model {#css-box-model}
 
-#### 🧰 Chrome Developer Tools
+> **💡 Key Concept:** Every element is a box with content, padding, border, and margin.
 
-**Open DevTools:**
+### 🧱 The Box Model
 
-- Menu → More Tools → Developer Tools
-- **Mac:** `Cmd + Option + I`
-- **Windows:** `Ctrl + Shift + I`
-- `F12` or Right-click → Inspect
+<p align="center">
+  <img src="../assets/svg/css-box-model.svg" align="center" width="600" hight="100" alt="Box Model">
+  <br>
+  <em>Box Model Visualization</em>
+</p>
 
-#### 🧱 Elements Tab & Styles Panel
-
-- **Elements tab** → HTML structure
-- **Styles panel** → applied CSS rules
-- Click elements directly or use selector tool
-
-#### ✏️ Live Editing CSS
-
-- Add/edit rules → changes apply instantly
-- Toggle rules on/off with checkboxes
-- ⚠️ Changes are temporary, do not affect files
-
-#### ⏱️ Temporary Changes
-
-- Only affect local browser session
-- Safe to experiment before updating source code
-
-#### 🧠 CSS Overrides & Specificity
-
-- Crossed-out styles → overridden
-- Toggle rules to see active styles
-
-#### 🧮 Computed Tab
-
-- Shows final applied styles
-- No crossed-out rules, values in RGB/resolved units
-
-#### 📊 CSS Overview
-
-- DevTools → More Tools → CSS Overview
-- Shows colors, fonts, and general design stats
-
-#### 🧪 Practice Exercise
-
-**Try it yourself:** [Just Add CSS Exercise](https://appbrewery.github.io/just-add-css/)
-
-Inspect elements, toggle/edit rules, explore Styles & Computed tabs
-
----
-
-### 📝 CSS Inspection Quiz
-
-**Practice:** [CSS Inspection Exercise](https://appbrewery.github.io/css-inspection)
-
----
-
-### 📦 CSS Box Model — Margin, Padding & Border
-
-#### 🧱 Elements as Boxes
-
-- Each element is a box
-- Control size with `width` and `height`
+### 📏 Width & Height
 
 ```css
 div {
@@ -200,106 +248,151 @@ div {
 }
 ```
 
-#### 🔲 Border
+### 🔲 Border
 
-**Syntax:** `border: thickness style color;`
-
-**Example:**
+**Syntax:** `border: [width] [style] [color];`
 
 ```css
-div {
-  border: 30px solid black;
-}
+div { border: 30px solid black; }
 ```
 
-- Individual sides: `border-top-width`, `border-right-width`
+**Common Styles:** `solid`, `dashed`, `dotted`, `double`, `none`
 
-- **Shortcuts:**
+**Individual sides:**
 
-  - 1 value → all sides
-  - 2 values → top/bottom left/right
-  - 4 values → top/right/bottom/left (clockwise)
+```css
+border-top: 2px solid red;
+border-right: 3px dashed blue;
+```
 
-#### 📏 Padding
+### 📏 Padding (Inside)
 
-Space **inside** the border, between content & border
+Space **inside** the border.
+
+```css
+div { padding: 20px; }      /* All sides */
+```
+
+### 🖼️ Margin (Outside)
+
+Space **outside** the border.
+
+```css
+div { margin: 10px; }       /* All sides */
+div { margin: 0 auto; }     /* Center horizontally */
+```
+
+### 🎯 Shorthand Pattern (Border, Padding, Margin)
+
+```css
+/* 1 value - all sides */
+padding: 20px;
+
+/* 2 values - vertical | horizontal */
+padding: 10px 20px;
+
+/* 3 values - top | horizontal | bottom */
+padding: 10px 20px 15px;
+
+/* 4 values - top | right | bottom | left (clockwise ↻) */
+padding: 10px 20px 15px 25px;
+```
+
+**🧠 Memory Tip:** Clockwise from top (12 o'clock)
+
+### 🎨 Padding vs Margin
+
+| Feature       | Padding                | Margin                     |
+|---------------|--------------------    |--------------------------- |
+| **Location**  | Inside border          | Outside border             |
+| **Background**| Visible                | Transparent                |
+| **Use for**   | Spacing content inside | Spacing between elements   |
+
+### 📦 Box Sizing
+
+<p align="center">
+  <img src="../assets/img/box-sizing.png" align="center" width="600" hight="100" alt="Box Sizing">
+  <br>
+  <em>Content Box vs Border Box</em>
+</p>
+
+**Default (`content-box`):**
 
 ```css
 div {
+  width: 200px;
   padding: 20px;
+  border: 5px solid;
+  /* Total width = 250px */
 }
 ```
 
-- 1–4 values allowed, clockwise
-
-#### 🖼️ Margin
-
-Space **outside** the border, separates elements
+**Better (`border-box`):**
 
 ```css
+* { box-sizing: border-box; }
+
 div {
+  width: 200px;
+  padding: 20px;
+  border: 5px solid;
+  /* Total width = 200px (content shrinks) */
+}
+```
+
+**✅ Recommended:** Always use `border-box`
+
+### 📦 Grouping with Divs
+
+```html
+<div class="card">
+  <h2>Title</h2>
+  <p>Content</p>
+</div>
+```
+
+```css
+.card {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
   margin: 10px;
 }
 ```
 
-- Two elements with 10px margin → 20px gap
+### 🧪 Practice
 
-#### 🧩 Visualizing the Box Model
+**[Box Model Demo](https://appbrewery.github.io/box-model/)** - Inspect and experiment
 
-- Use CSS inspector → shows margin, border, padding, content in colors
-- Adjust live to see layout changes
-- **Interactive demo:** [Box Model Example](https://appbrewery.github.io/box-model/) - Inspect this to see the differences
+### 🐞 Debugging Tool
 
----
+**Pesticide Chrome Extension** - Outlines all boxes to visualize layout
 
-### 📦 Grouping Content with Divs
+### 🧾 Quick Summary
 
-```html
-<div class="box">
-  <p>Text</p>
-  <img src="image.jpg" />
-</div>
+```css
+/* Complete box example */
+.box {
+  width: 200px;           /* Content width */
+  height: 100px;          /* Content height */
+  padding: 20px;          /* Inside space */
+  border: 2px solid #000; /* Boundary */
+  margin: 10px;           /* Outside space */
+}
+
+/* Always add this */
+* { box-sizing: border-box; }
 ```
 
-- `<div>` → invisible container
-- Apply `width`, `height`, `padding`, `border`, `margin` to group elements
-
 ---
 
-### 🐞 Debugging Tools
+## 🔗 Quick Resources
 
-**Pesticide Chrome extension** → outlines all boxes
-
-- Shows classes/IDs, helps debug layout
-
----
-
-## 🔑 Summary
-
-- **CSS colors** → text & background (use named colors or hex)
-- **Font properties** → size (use `rem`), weight, family, alignment
-- **Chrome DevTools** → inspect & experiment safely with live CSS editing
-- **Box model** → content, padding, border, margin (controls spacing & layout)
-
----
-
-## 🔗 Useful Resources
-
-### 📚 Documentation
-
-- [MDN Named Colors](https://developer.mozilla.org/en-US/docs/Web/CSS/named-color)
-- [MDN Font Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/font)
-- [MDN Text Align](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align)
-
-### 🎨 Design Tools
-
-- [Color Hunt](https://colorhunt.co) - Color palette inspiration
-- [Google Fonts](https://fonts.google.com) - Free web fonts
-
-### 🧪 Practice Exercises
-
-- [Just Add CSS](https://appbrewery.github.io/just-add-css/) - DevTools practice
-- [CSS Inspection Exercise](https://appbrewery.github.io/css-inspection) - Find CSS values
-- [Box Model Demo](https://appbrewery.github.io/box-model/) - Interactive box model
+| Resource         | Link                                                                             |
+|----------------- |----------------------------------------------------------------------------------|
+| MDN Named Colors | [MDN Named Colors](https://developer.mozilla.org/en-US/docs/Web/CSS/named-color) |
+| Color Hunt       | [colorhunt.co](https://colorhunt.co)                                             |
+| Google Fonts     | [fonts.google.com](https://fonts.google.com)                                     |
+| Box Model Demo   | [Interactive Box Model Demo](https://appbrewery.github.io/box-model/)            |
 
 ---
