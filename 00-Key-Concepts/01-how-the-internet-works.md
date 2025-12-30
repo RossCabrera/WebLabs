@@ -45,3 +45,5 @@
 - 🖥️ **Servers** serve data; 💻 **Clients** request it.  
 - 📖 **DNS** translates domains into IP addresses.  
 - 🌊 **Fiber-optic undersea cables** transmit data worldwide at lightning speed.  
+
+---

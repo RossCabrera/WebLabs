@@ -52,3 +52,5 @@
 - 🎨 **CSS** = styling (the paint and design).  
 - ⚡ **JavaScript** = functionality (electricity and appliances).  
 - 🌍 Together they create interactive, modern websites.  
+
+---
