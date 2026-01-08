@@ -2,11 +2,11 @@
 
 ## 📚 Table of Contents
 
-- [CSS Cascade: Specificity & Inheritance](#css-cascade)
-- [Combining CSS Selectors](#combining-selectors)
-- [CSS Positioning](#css-positioning)
+- [🎨 CSS Cascade: Specificity & Inheritance](#css-cascade)
+- [🧩 Combining CSS Selectors](#combining-selectors)
+- [📐 CSS Positioning](#css-positioning)
 
-## 🎨 CSS Cascade: Specificity & Inheritance {#css-cascade}
+## <a name="css-cascade"></a>🎨 CSS Cascade: Specificity & Inheritance
 
 ### 🌊 What is the CSS Cascade?
 
@@ -157,7 +157,7 @@ h1 {
 | **Position** | Last rule wins when tied |
 | **`!important`** | Use as a last resort only |
 
-## 🧩 Combining CSS Selectors {#combining-selectors}
+## <a name="combining-selectors"></a>🧩 Combining CSS Selectors
 
 ### 🎯 Why Combine Selectors?
 
@@ -303,7 +303,7 @@ ul p.done {
 | **Descendant**| `(space)`   | Any nested level              | `.box p`      |
 | **Chaining**  | `(none)`    | Multiple conditions           | `li.done`     |
 
-## 📐 CSS Positioning {#css-positioning}
+## <a name="css-positioning"></a>📐 CSS Positioning
 
 ### 🎯 What Is CSS Positioning?
 

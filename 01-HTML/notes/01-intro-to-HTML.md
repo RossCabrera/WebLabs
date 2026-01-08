@@ -2,13 +2,13 @@
 
 ## 📚 Table of Contents
 
-- [Heading Elements](#heading-elements)
-- [Paragraph Element](#paragraph-element)
-- [Void Elements](#void-elements)
+- [🏷️ Heading Elements](#heading-elements)
+- [📄 Paragraph Element](#paragraph-element)
+- [⚙️ Void Elements](#void-elements)
 
 ---
 
-## 🏷️ Heading Elements {#heading-elements}
+## <a name="heading-elements"></a>🏷️ Heading Elements
 
 > **💡 Key Concept:** Headings define **content hierarchy** from most to least important.
 
@@ -54,7 +54,7 @@
 
 ---
 
-## 📄 Paragraph Element {#paragraph-element}
+## <a name="paragraph-element"></a>📄 Paragraph Element
 
 > **💡 Key Concept:** The `<p>` tag structures text into **readable paragraphs**.
 
@@ -94,7 +94,7 @@ Welcome to our site. We offer great services. Contact us today.
 
 ---
 
-## ⚙️ Void Elements {#void-elements}
+## <a name="void-elements"></a>⚙️ Void Elements
 
 > **💡 Key Concept:** Void elements are **self-closing tags** that don't contain content.
 

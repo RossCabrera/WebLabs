@@ -2,14 +2,14 @@
 
 ## 📚 Table of Contents
 
-- [CSS Colors](#css-colors)
-- [CSS Font Properties](#css-font-properties)
-- [Inspecting CSS with Chrome DevTools](#inspecting-css)
-- [CSS Box Model](#css-box-model)
+- [🎨 CSS Colors](#css-colors)
+- [🔤 CSS Font Properties](#font-properties)
+- [🔍 Inspecting CSS with Chrome DevTools](#inspecting-css)
+- [📦 CSS Box Model](#box-model)
 
 ---
 
-## 🎨 CSS Colors {#css-colors}
+## <a name="css-colors"></a>🎨 CSS Colors
 
 > **💡 Key Concept:** CSS colors style both **text** and **backgrounds**.
 
@@ -53,7 +53,7 @@ background-color: rgba(0, 0, 0, 0.5); /* Transparent */
 
 ---
 
-## 🔤 CSS Font Properties {#css-font-properties}
+## <a name="font-properties"></a>🔤 CSS Font Properties
 
 ### 📏 Font Size (`font-size`)
 
@@ -154,7 +154,7 @@ h1 {
 
 ---
 
-## 🔍 Inspecting CSS with Chrome DevTools {#inspecting-css}
+## <a name="inspecting-css"></a>🔍 Inspecting CSS with Chrome DevTools
 
 ### 🧰 Opening DevTools
 
@@ -227,7 +227,7 @@ Box Model in DevTools:
 
 ---
 
-## 📦 CSS Box Model {#css-box-model}
+## <a name="box-model"></a>📦 CSS Box Model
 
 > **💡 Key Concept:** Every element is a box with content, padding, border, and margin.
 

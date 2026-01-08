@@ -2,10 +2,10 @@
 
 ## 📚 Table of Contents
 
-- [Adding CSS to HTML](#adding-css)
-- [CSS Selectors](#selectors)
-- [Specificity](#specificity-link)
-- [Box Model & Box-Sizing](#-box-model--box-sizing)
+- [🎨 Adding CSS to HTML](#adding-css)
+- [🧩 CSS Selectors](#selectors)
+- [⚖️ Specificity](#specificity-link)
+- [📦 Box Model & Box-Sizing](#box-model)
 
 ---
 

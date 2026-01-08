@@ -2,14 +2,14 @@
 
 ## 📚 Table of Contents
 
-- [List Elements](#list-elements)
-- [Nesting and Indentation](#nesting-indentation)
-- [Anchor Elements](#anchor-elements)
-- [Image Elements](#image-elements)
+- [📋 List Elements](#list-elements)
+- [🏗️ Nesting and Indentation](#nesting-indentation)
+- [🔗 Anchor Elements](#anchor-elements)
+- [🖼️ Image Elements](#image-elements)
 
 ---
 
-## 📋 List Elements {#list-elements}
+## <a name="list-elements"></a>📋 List Elements
 
 > **💡 Key Concept:** Lists organize content with **bullets** or **numbers**.
 
@@ -41,7 +41,7 @@ Use proper indentation for readability
 
 ---
 
-## 🏗️ Nesting and Indentation {#nesting-indentation}
+## <a name="nesting-indentation"></a>🏗️ Nesting and Indentation
 
 > **💡 Key Concept:** Nested lists embed one list **inside another** for hierarchy.
 
@@ -64,7 +64,7 @@ Proper indentation improves readability and helps catch missing closing tags
 
 ---
 
-## 🔗 Anchor Elements {#anchor-elements}
+## <a name="anchor-elements"></a>🔗 Anchor Elements
 
 > **💡 Key Concept:** The `<a>` tag creates **hyperlinks**.
 
@@ -89,7 +89,7 @@ Global attributes (e.g., `draggable`) can be applied to any element
 
 ---
 
-## 🖼️ Image Elements {#image-elements}
+## <a name="image-elements"></a>🖼️ Image Elements
 
 > **💡 Key Concept:** The `<img>` tag displays images and is a **void element**.
 

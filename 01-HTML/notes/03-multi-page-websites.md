@@ -2,14 +2,14 @@
 
 ## 📚 Table of Contents
 
-- [Computer File Paths](#computer-file-paths)
-- [What Are Webpages?](#what-are-webpages)
-- [HTML Boilerplate](#html-boilerplate)
-- [Hosting Your Website with GitHub](#hosting-your-website-with-github)
+- [🗂️ Computer File Paths](#file-paths)
+- [🌐 What Are Webpages?](#webpages)
+- [🏗️ HTML Boilerplate](#boilerplate)
+- [☁️ Hosting Your Website with GitHub](#github-hosting)
 
 ---
 
-## 🗂️ Computer File Paths {#computer-file-paths}
+## <a name="file-paths"></a>🗂️ Computer File Paths
 
 > **💡 Key Concept:** File paths identify the **exact location** of files or folders on a computer.
 
@@ -48,7 +48,7 @@
 
 ---
 
-## 🌐 What Are Webpages? {#what-are-webpages}
+## <a name="webpages"></a>🌐 What Are Webpages?
 
 > **💡 Key Concept:** Multi-page websites are **multiple HTML files** linked together.
 
@@ -93,7 +93,7 @@
 
 ---
 
-## 🏗️ HTML Boilerplate {#html-boilerplate}
+## <a name="boilerplate"></a>🏗️ HTML Boilerplate
 
 > **💡 Key Concept:** The boilerplate is the **standard starting structure** for all HTML documents.
 
@@ -145,7 +145,7 @@ The boilerplate provides structure for every HTML page with proper document decl
 
 ---
 
-## ☁️ Hosting Your Website with GitHub {#hosting-your-website-with-github}
+## <a name="github-hosting"></a>☁️ Hosting Your Website with GitHub
 
 > **💡 Key Concept:** **GitHub Pages** offers free hosting for static websites.
 
