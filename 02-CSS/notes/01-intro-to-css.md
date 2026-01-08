@@ -2,14 +2,14 @@
 
 ## 📚 Table of Contents
 
-- [Adding CSS to HTML](#adding-css)
-- [CSS Selectors](#css-selectors)
-- [Specificity](#specificity)
-- [Box Model & Box-Sizing](#box-model)
+- [🎨 Adding CSS to HTML](#adding-css)
+- [🧩 CSS Selectors](#selectors)
+- [⚖️ Specificity](#specificity)
+- [📦 Box Model & Box-Sizing](#-box-model--box-sizing)
 
 ---
 
-## 🎨 Adding CSS to HTML {#adding-css}
+## <a name="adding-css"></a>🎨 Adding CSS to HTML
 
 > **💡 Key Concept:** There are **three ways** to add CSS to HTML.
 
@@ -47,7 +47,7 @@
 
 ---
 
-## 🧩 CSS Selectors {#css-selectors}
+## <a name="selectors"></a>🧩 CSS Selectors
 
 ### 🎯 Selector Types
 
@@ -72,7 +72,7 @@ p[draggable="false"] { cursor: default; } /* Attribute */
 
 ---
 
-## ⚖️ Specificity {#specificity}
+## ⚖️ Specificity
 
 > **💡 Key Concept:** Specificity determines which style takes precedence when multiple rules apply.
 
@@ -120,7 +120,7 @@ div p { }                      /* (0,0,0,2) - 2 elements */
 
 ---
 
-## 📦 Box Model & Box-Sizing {#box-model}
+## 📦 Box Model & Box-Sizing
 
 > **💡 Key Concept:** Every element is a box with content, padding, border, and margin.
 
