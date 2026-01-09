@@ -97,7 +97,7 @@ h1 { color: red; }             /* 1 */
 #### 3️⃣ Type (Where the CSS Is Written)
 
 <p align="center">
-  <img src="../assets/priority-order.png" align="center" width="600" hight="100" alt="Priority Order">
+  <img src="../assets/img/priority-order.png" align="center" width="400" hight="100" alt="Priority Order">
 </p>
 
 #### 4️⃣ Importance (!important)
@@ -464,7 +464,7 @@ position: static;  /* Default */
 ### 🖼️ Visual Example
 
 <p align="center">
-  <img src="../assets/css-positioning-examples.png" align="center" width="600" hight="100" alt="CSS Positioning Examples">
+  <img src="../assets/img/css-positioning-examples.png" align="center" width="600" hight="100" alt="CSS Positioning Examples">
   <br>
   <em>CSS Positioning Examples</em>
 </p>
@@ -529,11 +529,11 @@ position: static;  /* Default */
 
 ### 📖 Additional Resources
 
-| Resource                 | Link                                                                                            |
-|--------------------------|----------------------------------------------------------------------                           |
-| MDN CSS Cascade          | [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade)               |
-| CSS Tricks: Specificity  | [css-tricks.com](https://css-tricks.com/specifics-on-css-specificity/)                          |
-| Specificity Calculator   | [specificity.keegan.st](https://specificity.keegan.st/)                                         |
-| CSS Tricks: Positioning  | [css-tricks.com](https://css-tricks.com/absolute-relative-fixed-positioning-how-do-they-differ/)|
+| Resource                 | Link                                                                                     |
+|--------------------------|------------------------------------------------------------------------------------------|
+| MDN CSS Cascade          | [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade)        |
+| CSS Tricks: Specificity  | [css-tricks.com](https://css-tricks.com/specifics-on-css-specificity/)                   |
+| Specificity Calculator   | [specificity.keegan.st](https://specificity.keegan.st/)                                  |
+| CSS Positioning Demo     | [appbrewery.github.io](https://appbrewery.github.io/css-positioning/)                    |
 
 ---
