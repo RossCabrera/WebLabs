@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mondrian Project</title>
+  <style>
+    /* 
+    Write your CSS here 
+    Gap Colour: #000
+    White: #F0F1EC
+    Red: #E72F24
+    Black: #232629
+    Blue: #004592
+    Yellow: #F9D01E
+
+    For dimensions, see dimensions.png image.
+    HINT: Remember you can't change the properties of grid lines.
+    But grid lines are transparent!
+    */
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    .container{
+      height: 765px;
+      width: 748px;
+      display: grid;
+      grid-template-columns: 320px 198PX 153PX 50PX;
+      grid-template-rows: 414px 130px 10px 155px 20px;
+      gap: 9px;
+      background-color: #000;
+    }
+
+    .red-box{
+      background-color: #E72F24;
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      
+    }
+
+    .white-box1{
+      background-color: #F0F1EC;
+      grid-area: 1 / 2 / 1 / 5;
+
+    }
+
+    .white-box2{
+      background-color: #F0F1EC;
+      grid-area: 2 / 1 / 5 / 2;
+    }
+
+    .white-box3{
+      background-color: #F0F1EC;
+      grid-column: span 2;
+      grid-row: span 3;
+    }
+
+    .white-box4{
+      background-color: #F0F1EC;
+      grid-area: 5 / 1 / 6 / 2;
+    }
+
+    .yellow-box{
+      background-color: #F9D01E;
+      grid-area: 5 / 2 / 6 / 3;
+    }
+
+    .blue-box{
+      background-color:#004592;
+      grid-column: 4 / 5;
+      grid-row: 2 / 3;
+    }
+
+    .black-box{
+      background-color: #000;
+      grid-area: 3 / 4 / 4 / 5;
+    }
+    
+    .gray-box{
+      background-color: #242629;
+      grid-area: 5 / 3 / 5 / 4;
+    }
+
+    .white-box5{
+      background-color: #F0F1EC;
+      grid-area: 4 / 4 / 6 / 5;
+    }
+
+
+
+  </style>
+</head>
+
+<body>
+  <!-- Write your HTML here -->
+  <div class="container">
+    <div class="red-box"></div>
+    <div class="white-box1"></div>
+    <div class="white-box2"></div>
+    <div class="white-box3"></div>
+    <div class="white-box4"></div>
+    <div class="white-box5"></div>
+    <div class="blue-box"></div>
+    <div class="black-box"></div>
+    <div class="gray-box"></div>
+    <div class="yellow-box"></div>
+  </div>
+   
+</body>
+
+</html>
