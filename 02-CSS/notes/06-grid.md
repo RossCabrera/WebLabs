@@ -267,6 +267,7 @@ Use Grid for layout structure, Flexbox for content alignment:
 
 - **Visual Comparison:** [Grid vs Flexbox Demo](https://appbrewery.github.io/grid-vs-flexbox/)
 - **Sizing Practice:** [Grid Sizing Exercise](https://appbrewery.github.io/grid-sizing/)
+- **Grid Cheat sheet** [Grid CSS Sheets](https://www.devsheets.io/sheets/css-grid)
 - **Interactive Game:** [Grid Garden](https://appbrewery.github.io/gridgarden/) (28 levels)
 
 ---

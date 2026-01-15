@@ -124,6 +124,7 @@ flex: [grow] [shrink] [basis];
 
 - **Practice:** [Flexbox Froggy Game](https://appbrewery.github.io/flexboxfroggy/)
 - **Reference:** [CSS-Tricks Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- **Flexbox CSS Cheat Sheet:** [Flexbos Sheets](https://www.devsheets.io/sheets/flexbox)
 - **Layout Practice:** [Flex Layout Exercise](https://appbrewery.github.io/flex-layout/)
 - **Sizing Exercise:** [Flexbox Sizing Exercise](https://appbrewery.github.io/flexbox-sizing-exercise/)
 
