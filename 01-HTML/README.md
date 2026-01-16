@@ -1,9 +1,10 @@
-# 🧱 HTML Section  
+# 📦 HTML Section
 
 ## 📚 Overview
 
-This folder contains everything related to **learning and practicing HTML**, the language that gives structure and meaning to web content.  
+This section covers **HTML**, the language that gives structure and meaning to web content.  
 It’s organized into **three stages** that build upon each other — from basic syntax to multi-page websites.  
+Through notes, exercises, projects, and a capstone, you will learn to create complete and accessible web pages using only HTML.
 
 ---
 
@@ -13,52 +14,45 @@ It’s organized into **three stages** that build upon each other — from basic
 It defines the **structure and content** of websites — everything from headings and paragraphs to links and images.  
 
 💡 You can create a complete webpage using **only HTML**.  
-Browsers like Chrome, Safari, or Brave read your HTML code and render it visually, often combined with CSS and JavaScript.
+Browsers like Chrome, Safari, or Brave read your HTML code and render it visually.
 
 ---
 
-## 🔗 Hypertext  
+## 📘 Topics Covered
 
-- **Hypertext** = text that links to other pages or files (**hyperlinks**).  
-- Hyperlinks are how websites **connect multiple pages**.  
-- Example: Clicking a link on `index.html` might open `about.html`.  
-- This concept comes from the **first websites**, all built with plain HTML and hyperlinks.  
+- HTML basics: headings, paragraphs, lists, links
+- Semantic HTML and accessibility
+- Images, forms, and input elements
+- File structure and multi-page websites
+- HTML best practices
+
+> 💡 Detailed explanations and summaries for each topic are in the `notes/` folder.
 
 ---
 
-## 🏷️ Markup Language
-
-HTML is a **markup language**, meaning it uses **tags** to tell browsers how to display content.  
-Each tag has an **opening** and **closing** form:  
-
-```html
-<h1>My First Heading</h1>
-<p>This is a paragraph.</p>
-<a href="page.html">Go to page</a>
-```
-
-## 📚 Learning Stages
+## 🧩 Learning Stages
 
 ### 1️⃣ Introduction to HTML
 
-- Learn the foundations — what HTML is, essential elements like headings, paragraphs, and void elements.
+- Learn the foundations — essential elements like headings, paragraphs, and void elements.
 
 ### 2️⃣ Intermediate HTML
 
 - Explore lists, nesting, indentation, anchor tags, and images.
-- Focuses on structuring and linking content effectively.
+- Focus on structuring and linking content effectively.
 
 ### 3️⃣ Multi-Page Websites
 
-- Combine all previous knowledge to create multi-page sites, understand file paths, and use a basic HTML boilerplate.
-- Includes practice on hosting and portfolio setup.
+- Combine all previous knowledge to create multi-page sites.
+- Understand file paths, use a basic HTML boilerplate, and practice hosting.
+
+---
 
 ## 🧩 Folder Structure
 
 ```plaintext
 01-HTML/
 ├── README.md
-├── capstone-project/
 ├── notes/
 │   ├── 01-intro-to-HTML.md
 │   ├── 02-intermediate-HTML.md
@@ -67,46 +61,37 @@ Each tag has an **opening** and **closing** form:
 │   ├── 01-intro-to-html/
 │   ├── 02-intermediate-html/
 │   └── 03-multi-page-websites/
-└── projects/
-    ├── 01-intro-to-html/
-    ├── 02-intermediate-html/
-    └── 03-multi-page-websites/
+├── projects/
+│   ├── 01-intro-to-html/
+│   ├── 02-intermediate-html/
+│   └── 03-multi-page-websites/
+└── capstone-project/
+    ├── README.md
+    ├── img/
+    └── index.html
+
 ```
 
-### 📘 notes/
+## 🏆 capstone-project
 
-- Concise documentation and explanations for each stage — perfect for review and quick recall.
+Personal Website Project – Build a multi-page website using only HTML.
+The project consolidates all concepts learned in this section.
 
-### 🧠 practice-snippets/
+📄 Full project instructions and requirements are available in:
 
-- Small, focused HTML exercises.
-- ***Each folder includes:***
-
-  - `index.html` — practice code
-  - `goal.png` — visual reference of expected result
-
-### 🎨 projects/
-
-- Mini-projects that combine multiple topics.
-- ***Each subfolder contains:***
-
-  - `index.html` — your implementation
-  - `goal.png` — visual reference of expected result
-
-### 🏆 capstone-project/
-
-A comprehensive final project that brings together all HTML concepts learned throughout the module.
-
-**Contains:**
-
-- `index.html` — main project file
-- Additional HTML pages (if multi-page)
-- `README.md` — project requirements and instructions
+```text
+capstone-project/README.md
+```
 
 ---
 
 ### 🎯 Goal
 
-Build a strong foundation in HTML through structured practice, progressively moving from simple elements to complete multi-page websites — understanding both syntax and purpose behind every tag.
+By the end of this section, you will be able to:
+
+- Build structured and semantic HTML pages
+- Apply best practices for multi-page websites
+- Understand HTML syntax, tags, and document structure
+- Prepare for styling with CSS and building complete web projects
 
 ---
