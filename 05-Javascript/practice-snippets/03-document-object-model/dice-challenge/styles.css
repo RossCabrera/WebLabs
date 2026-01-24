@@ -1,0 +1,322 @@
+/* Body background and layout */
+body {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Grid texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.03) 0px,
+      transparent 1px,
+      transparent 2px,
+      rgba(0, 0, 0, 0.03) 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.03) 0px,
+      transparent 1px,
+      transparent 2px,
+      rgba(0, 0, 0, 0.03) 3px
+    );
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+/* Main container */
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Golden frame box */
+.vintage-frame {
+  background: rgba(255, 255, 255, 0.05);
+  border: 4px solid #d4af37;
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  margin-top: 3rem;
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.4),
+    inset 0 0 20px rgba(212, 175, 55, 0.1),
+    0 0 0 8px rgba(255, 255, 255, 0.03);
+  position: relative;
+}
+
+/* Frame corner decorations */
+.vintage-frame::before,
+.vintage-frame::after {
+  content: "✦";
+  position: absolute;
+  font-size: 2rem;
+  color: #d4af37;
+  opacity: 0.6;
+}
+
+.vintage-frame::before {
+  top: 1rem;
+  left: 1.5rem;
+}
+
+.vintage-frame::after {
+  bottom: 1rem;
+  right: 1.5rem;
+}
+
+/* Main heading */
+h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  color: #f4e4c1;
+  text-shadow:
+    3px 3px 0 #d4af37,
+    6px 6px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Glow animation for heading */
+@keyframes glow {
+  from {
+    text-shadow:
+      3px 3px 0 #d4af37,
+      6px 6px 10px rgba(0, 0, 0, 0.5);
+  }
+  to {
+    text-shadow:
+      3px 3px 0 #d4af37,
+      6px 6px 10px rgba(0, 0, 0, 0.5),
+      0 0 20px rgba(244, 228, 193, 0.3);
+  }
+}
+
+/* Subtitle text */
+.subtitle {
+  font-family: "Indie Flower", cursive;
+  font-size: 1.5rem;
+  color: #ecf0f1;
+  margin-bottom: 2.5rem;
+  font-style: italic;
+}
+
+/* Dice container layout */
+.dice-container {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin: 3rem 0;
+}
+
+/* Individual player dice box */
+.dice-player {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 2rem 2.5rem;
+  min-width: 250px;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Dice player hover effect */
+.dice-player:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+  border-color: rgba(212, 175, 55, 0.6);
+}
+
+/* Winner highlight */
+.dice-player.winner {
+  animation: winnerPulse 1s ease-in-out infinite;
+  border-color: #d4af37;
+  background: rgba(212, 175, 55, 0.15);
+}
+
+/* Winner pulse animation */
+@keyframes winnerPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+  }
+}
+
+/* Player name label */
+.player-label {
+  font-size: 1.8rem;
+  color: #f4e4c1;
+  font-family: "Lobster", cursive;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Dice image container */
+.dice-img-container {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 1rem;
+  box-shadow:
+    inset 0 4px 8px rgba(0, 0, 0, 0.3),
+    0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+/* Dice image */
+.dice-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+
+/* Dice image hover effect */
+.dice-player:hover .dice-img {
+  transform: rotate(5deg) scale(1.05);
+}
+
+/* Roll button */
+.roll-btn {
+  background: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%);
+  border: none;
+  color: #2c3e50;
+  font-family: "Lobster", cursive;
+  font-size: 1.8rem;
+  padding: 1rem 3rem;
+  border-radius: 50px;
+  box-shadow:
+    0 6px 20px rgba(212, 175, 55, 0.4),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  margin: 2rem 0;
+  cursor: pointer;
+}
+
+/* Roll button hover */
+.roll-btn:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 10px 30px rgba(212, 175, 55, 0.6),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Roll button active/pressed */
+.roll-btn:active {
+  transform: translateY(0);
+  box-shadow:
+    0 3px 10px rgba(212, 175, 55, 0.4),
+    inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Button icon */
+.roll-btn i {
+  margin-left: 0.5rem;
+  animation: spin 2s linear infinite;
+}
+
+/* Button icon hover */
+.roll-btn:hover i {
+  animation-duration: 0.5s;
+}
+
+/* Spin animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Result text */
+.result-text {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  color: #f4e4c1;
+  margin: 1.5rem 0;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Footer */
+footer {
+  margin-top: 3rem;
+  padding: 2rem;
+  color: #bdc3c7;
+  text-align: center;
+  font-family: "Indie Flower", cursive;
+  font-size: 1rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Footer icons */
+footer i {
+  color: #d4af37;
+  margin: 0 0.3rem;
+}
+
+/* Decorative corners */
+.decorative-corners {
+  position: absolute;
+  font-size: 3rem;
+  color: #d4af37;
+  opacity: 0.4;
+}
+
+/* Corner positions */
+.corner-tl {
+  top: -1rem;
+  left: -1rem;
+}
+.corner-tr {
+  top: -1rem;
+  right: -1rem;
+}
+.corner-bl {
+  bottom: -1rem;
+  left: -1rem;
+}
+.corner-br {
+  bottom: -1rem;
+  right: -1rem;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .dice-container {
+    gap: 2rem;
+  }
+
+  .dice-player {
+    min-width: 200px;
+    padding: 1.5rem;
+  }
+
+  .dice-img-container {
+    width: 140px;
+    height: 140px;
+  }
+}

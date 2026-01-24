@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Dicee</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster|Playfair+Display:700" rel="stylesheet" />
+  <link rel="shortcut icon" href="./svg/dice.svg" type="image/x-icon">
+</head>
+
+<body>
+  <div class="container">
+    <div class="vintage-frame">
+      <i class="bi bi-stars decorative-corners corner-tl"></i>
+      <i class="bi bi-stars decorative-corners corner-tr"></i>
+      <i class="bi bi-stars decorative-corners corner-bl"></i>
+      <i class="bi bi-stars decorative-corners corner-br"></i>
+
+      <h1>Dicee Game</h1>
+      <p class="subtitle">~ Roll the Dice & Try Your Luck ~</p>
+
+      <div class="dice-container">
+        <div class="dice-player" id="player1">
+          <p class="player-label">
+            <i class="bi bi-person-fill"></i>
+            Player 1
+          </p>
+          <div class="dice-img-container">
+            <img class="dice-img img1" src="./images/dice6.png" alt="Dice 1" />
+          </div>
+        </div>
+
+        <div class="dice-player" id="player2">
+          <p class="player-label">
+            <i class="bi bi-person-fill"></i>
+            Player 2
+          </p>
+          <div class="dice-img-container">
+            <img class="dice-img img2" src="./images/dice6.png" alt="Dice 2" />
+          </div>
+        </div>
+      </div>
+
+      <button class="roll-btn" onclick="location.reload()">
+        Roll Again
+        <i class="bi bi-arrow-clockwise"></i>
+      </button>
+    </div>
+
+    <footer>
+      Made with <i class="bi bi-heart-fill"></i> for vintage game lovers
+      <i class="bi bi-dice-5-fill"></i>
+    </footer>
+  </div>
+</body>
+
+</html>
