@@ -6,6 +6,8 @@
 - [🧩 Combining CSS Selectors](#combining-selectors)
 - [📐 CSS Positioning](#css-positioning)
 
+---
+
 ## <a name="css-cascade"></a>🎨 CSS Cascade: Specificity & Inheritance
 
 ### 🌊 What is the CSS Cascade?
@@ -97,7 +99,7 @@ h1 { color: red; }             /* 1 */
 #### 3️⃣ Type (Where the CSS Is Written)
 
 <p align="center">
-  <img src="../assets/img/priority-order.png" align="center" width="400" hight="100" alt="Priority Order">
+  <img src="../assets/img/priority-order.png" align="center" width="400" height="400" alt="Priority Order">
 </p>
 
 #### 4️⃣ Importance (!important)
@@ -156,6 +158,8 @@ h1 {
 | **Specificity Order** | inline > ID > class > element |
 | **Position** | Last rule wins when tied |
 | **`!important`** | Use as a last resort only |
+
+---
 
 ## <a name="combining-selectors"></a>🧩 Combining CSS Selectors
 
@@ -290,7 +294,7 @@ ul p.done {
 ```text
 1. Right-click element → Inspect
 2. Hover over selectors in Styles panel
-. See highlighted elements in real-time
+3. See highlighted elements in real-time
 4. Verify complex selector behavior
 ```
 
@@ -302,6 +306,8 @@ ul p.done {
 | **Child**     | `>`         | Direct children only          | `.box > p`    |
 | **Descendant**| `(space)`   | Any nested level              | `.box p`      |
 | **Chaining**  | `(none)`    | Multiple conditions           | `li.done`     |
+
+---
 
 ## <a name="css-positioning"></a>📐 CSS Positioning
 
@@ -394,7 +400,7 @@ position: static;  /* Default */
 #### Stacking Rules
 
 | z-index       | Result           |
-|:-------------:|----------------  |
+|:-------------:|------------------|
 | Higher number | Appears on top   |
 | `0`           | Default value    |
 | Negative      | Behind elements  |
@@ -452,19 +458,19 @@ position: static;  /* Default */
 
 **Available offset properties:**
 
-| z-index       | Result           |
-|:-------------:|----------------- |
-| Higher number | Appears on top   |
-| `0`           | Default value    |
-| Negative      | Behind elements  |
-| `auto`        | Same as parent   |
+| Property | Direction        |
+|:--------:|:-----------------|
+| `top`    | From top edge    |
+| `right`  | From right edge  |
+| `bottom` | From bottom edge |
+| `left`   | From left edge   |
 
 > 💡 **Tip:** These work **outside** margins, independent of box model
 
 ### 🖼️ Visual Example
 
 <p align="center">
-  <img src="../assets/img/css-positioning-examples.png" align="center" width="600" hight="100" alt="CSS Positioning Examples">
+  <img src="../assets/img/css-positioning-examples.png" align="center" width="600" height="500" alt="CSS Positioning Examples">
   <br>
   <em>CSS Positioning Examples</em>
 </p>
@@ -514,7 +520,7 @@ position: static;  /* Default */
 ### ✅ Section Summary
 
 | Position   | Flow     | Reference Point        | Scrolls?       |
-|----------- |--------- |----------------------  |--------------  |
+|----------- |--------- |----------------------  |----------------|
 | `static`   | Normal   | N/A                    | ✅ Yes         |
 | `relative` | Normal   | Self                   | ✅ Yes         |
 | `absolute` | Removed  | Positioned ancestor    | ✅ Yes         |
@@ -527,7 +533,9 @@ position: static;  /* Default */
 - `z-index` only works on positioned elements
 - Positioning is separate from box model (margin, padding)
 
-### 📖 Additional Resources
+---
+
+## 🔗 Useful Resources
 
 | Resource                 | Link                                                                                     |
 |--------------------------|------------------------------------------------------------------------------------------|
@@ -535,5 +543,11 @@ position: static;  /* Default */
 | CSS Tricks: Specificity  | [css-tricks.com](https://css-tricks.com/specifics-on-css-specificity/)                   |
 | Specificity Calculator   | [specificity.keegan.st](https://specificity.keegan.st/)                                  |
 | CSS Positioning Demo     | [appbrewery.github.io](https://appbrewery.github.io/css-positioning/)                    |
+
+---
+
+## 🧾 Summary
+
+CSS resolves conflicts through **4 priority factors**: Position (last rule wins), Specificity (inline > ID > class > element), Type (where CSS is written), and Importance (!important as last resort). **Combine selectors** using grouping (`,`), child (`>`), descendant (space), and chaining (no space) to target elements precisely. **Positioning** controls element placement with 5 types (static, relative, absolute, fixed, sticky), where `z-index` manages stacking order and `position: relative` on parents enables absolute positioning of children.
 
 ---
