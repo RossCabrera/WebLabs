@@ -1,0 +1,385 @@
+/* ============================================
+   DRUM KIT - STYLES
+   ============================================
+   A responsive drum kit interface with 
+   warm wooden aesthetics and interactive effects
+   ============================================ */
+
+/* ============================================
+   BASE STYLES & LAYOUT
+   ============================================ */
+
+/**
+ * HTML & Body - Full viewport layout
+ * Sets up flexbox container for vertical stacking
+ * Applies warm brown gradient background matching drum colors
+ */
+html, body {
+  text-align: center;
+  background: linear-gradient(135deg, #2c1810 0%, #4a2c1a 50%, #3d2415 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arvo', cursive;
+}
+
+/* ============================================
+   HEADER & TITLE
+   ============================================ */
+
+/**
+ * Main Title (h1)
+ * Large display heading with animated glow effect
+ * Uses cream color (#f5e6d3) with golden glow shadows
+ */
+h1 {
+  font-size: 6rem;
+  color: #f5e6d3;
+  font-family: "Arvo", cursive;
+  text-shadow: 0 0 20px rgba(255, 140, 0, 0.5),
+               0 0 40px rgba(218, 165, 32, 0.3),
+               4px 4px 8px rgba(0, 0, 0, 0.8);
+  margin: 60px 0 50px 0;
+  letter-spacing: 8px;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+/**
+ * Glow Animation
+ * Creates pulsing golden glow effect on title
+ * Alternates between subtle and intense glow states
+ */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 20px rgba(255, 140, 0, 0.5),
+                 0 0 40px rgba(218, 165, 32, 0.3),
+                 4px 4px 8px rgba(0, 0, 0, 0.8);
+  }
+  to {
+    text-shadow: 0 0 30px rgba(255, 140, 0, 0.8),
+                 0 0 60px rgba(218, 165, 32, 0.5),
+                 4px 4px 8px rgba(0, 0, 0, 0.8);
+  }
+}
+
+
+/* ============================================
+   DRUM BUTTON BACKGROUNDS
+   ============================================ */
+
+/**
+ * Individual Drum Buttons (w, a, s, d, j, k, l)
+ * Each button displays a specific drum image
+ * Background color provides fallback while images load
+ */
+
+/* Tom Drum 1 - Floor tom */
+.w {
+  background-image: url("./images/tom1.png");
+  background-position: center;
+  background-size: 85%;
+  background-repeat: no-repeat;
+  background-color: #6b4423;
+}
+
+/* Tom Drum 2 - Mid tom */
+.a {
+  background-image: url("./images/tom2.png");
+  background-position: center;
+  background-size: 85%;
+  background-repeat: no-repeat;
+  background-color: #6b4423;
+}
+
+/* Tom Drum 3 - High tom */
+.s {
+  background-image: url("./images/tom3.png");
+  background-position: center;
+  background-size: 85%;
+  background-repeat: no-repeat;
+  background-color: #6b4423;
+}
+
+/* Tom Drum 4 - Rack tom */
+.d {
+  background-image: url("./images/tom4.png");
+  background-position: center;
+  background-size: 85%;
+  background-repeat: no-repeat;
+  background-color: #6b4423;
+}
+
+/* Snare Drum */
+.j {
+  background-image: url("./images/snare.png");
+  background-position: center;
+  background-size: 85%;
+  background-repeat: no-repeat;
+  background-color: #6b4423;
+}
+
+/* Crash Cymbal - Uses golden brass color */
+.k {
+  background-image: url("./images/crash.png");
+  background-position: center;
+  background-size: 85%;
+  background-repeat: no-repeat;
+  background-color: #a89968;
+}
+
+/* Kick Drum - Bass drum */
+.l {
+  background-image: url("./images/kick.png");
+  background-position: center;
+  background-size: 85%;
+  background-repeat: no-repeat;
+  background-color: #6b4423;
+}
+
+/* ============================================
+   DRUM SET CONTAINER (THE BOX)
+   ============================================ */
+
+/**
+ * Drum Set Container
+ * Creates a beautiful wooden stage/box for all drums
+ * Features:
+ * - Flexbox layout for responsive drum arrangement
+ * - Gradient background mimicking wood texture
+ * - Multiple shadow layers for 3D depth
+ * - Golden border matching drum hardware
+ * - Decorative inner border (via ::before pseudo-element)
+ */
+.set {
+  /* Flexbox Layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto 50px auto;
+  padding: 60px 50px;
+  flex: 1;
+  
+  /* Wooden Box Styling */
+  background: linear-gradient(145deg, #5a3825 0%, #6b4423 50%, #5a3825 100%);
+  border: 8px solid #8b6f47;
+  border-radius: 30px;
+  
+  /* 3D Depth Effects */
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.8),           /* Main drop shadow */
+    0 0 0 2px rgba(139, 111, 71, 0.3),        /* Subtle outer glow */
+    inset 0 2px 10px rgba(255, 255, 255, 0.1), /* Top highlight */
+    inset 0 -10px 30px rgba(0, 0, 0, 0.4);    /* Bottom shadow for depth */
+  
+  position: relative;
+}
+
+/**
+ * Decorative Inner Border
+ * Adds an elegant frame effect inside the box
+ * Uses ::before pseudo-element to avoid extra HTML
+ */
+.set::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  border: 2px solid rgba(218, 165, 32, 0.2);
+  border-radius: 20px;
+  pointer-events: none; /* Ensures it doesn't interfere with clicks */
+}
+
+/* ============================================
+   GAME STATES
+   ============================================ */
+
+/**
+ * Pressed State
+ * Applied when drum is clicked or key is pressed
+ * Creates impact effect with scale down and glow
+ */
+.pressed {
+  transform: scale(0.92) translateY(4px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6),
+              0 0 30px rgba(255, 140, 0, 0.6),
+              inset 0 5px 20px rgba(0, 0, 0, 0.5);
+  filter: brightness(1.3);
+}
+
+/**
+ * Red Text Utility Class
+ * Can be applied for error states or emphasis
+ */
+.red {
+  color: red;
+}
+
+/* ============================================
+   DRUM BUTTONS - BASE STYLES
+   ============================================ */
+
+/**
+ * Drum Button Base Styles
+ * Applies to all .drum elements (w, a, s, d, j, k, l)
+ * 
+ * Features:
+ * - Consistent 180x180px size
+ * - Bronze/brass border matching hardware
+ * - Multiple shadow layers for 3D effect
+ * - Shine animation on hover (via ::before)
+ * - Smooth transitions for all interactions
+ */
+.drum {
+  /* Remove default button styles */
+  outline: none;
+  
+  /* Size and Shape */
+  width: 180px;
+  height: 180px;
+  border-radius: 25px;
+  border: 6px solid #c0a080;
+  
+  /* Typography */
+  font-size: 4.5rem;
+  font-family: 'Arvo', cursive;
+  font-weight: 900;
+  color: #f5e6d3;
+  text-shadow: 
+    3px 3px 0 rgba(0, 0, 0, 0.8),        /* Solid shadow for depth */
+    0 0 20px rgba(255, 200, 100, 0.5);   /* Soft glow */
+  
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+  /* Visual Effects */
+  background-color: #6b4423;
+  box-shadow: 
+    0 12px 30px rgba(0, 0, 0, 0.7),           /* Main shadow */
+    0 0 0 3px rgba(192, 160, 128, 0.2),       /* Outer glow */
+    inset 0 -4px 10px rgba(0, 0, 0, 0.5),     /* Bottom inner shadow */
+    inset 0 4px 10px rgba(255, 255, 255, 0.15); /* Top inner highlight */
+  
+  /* Interaction */
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Setup for pseudo-element */
+  position: relative;
+  overflow: hidden;
+}
+
+/**
+ * Shine Effect Layer
+ * Creates animated light sweep across drum on hover
+ * Uses ::before pseudo-element for performance
+ */
+.drum::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 220, 150, 0.15),
+    transparent
+  );
+  transform: rotate(45deg);
+  transition: all 0.5s;
+}
+
+/**
+ * Shine Animation Trigger
+ * Moves light sweep across drum on hover
+ */
+.drum:hover::before {
+  left: 100%;
+}
+
+/* ============================================
+   DRUM BUTTON INTERACTIONS
+   ============================================ */
+
+/**
+ * Hover State
+ * Lifts drum and adds enhanced glow effects
+ * Increases brightness for visual feedback
+ */
+.drum:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.8),           /* Larger drop shadow */
+    0 0 0 4px rgba(218, 165, 32, 0.3),        /* Golden outer glow */
+    0 0 40px rgba(255, 140, 0, 0.4),          /* Orange ambient glow */
+    inset 0 -4px 10px rgba(0, 0, 0, 0.5),     /* Maintained inner shadows */
+    inset 0 4px 10px rgba(255, 255, 255, 0.2);
+  border-color: #dab870;
+  filter: brightness(1.15);
+}
+
+/**
+ * Active/Click State
+ * Provides immediate tactile feedback on click
+ * Works in conjunction with .pressed class from JavaScript
+ */
+.drum:active {
+  transform: scale(0.95) translateY(2px);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/**
+ * Tablet and Small Desktop (max-width: 768px)
+ */
+@media (max-width: 768px) {
+  /* Smaller title */
+  h1 {
+    font-size: 3.5rem;
+    margin: 40px 0 30px 0;
+  }
+  
+  /* Smaller drums */
+  .drum {
+    width: 140px;
+    height: 140px;
+    font-size: 3.5rem;
+  }
+  
+  /* Tighter spacing in box */
+  .set {
+    gap: 15px;
+    padding: 40px 30px;
+    margin: 0 20px 30px 20px;
+  }
+}
+
+/**
+ * Mobile Phones (max-width: 480px)
+*/
+@media (max-width: 480px) {
+  /* Compact drums for mobile */
+  .drum {
+    width: 100px;
+    height: 100px;
+    font-size: 2.5rem;
+  }
+  
+  /* Minimal padding on mobile */
+  .set {
+    padding: 30px 20px;
+  }
+}
