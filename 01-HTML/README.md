@@ -2,9 +2,8 @@
 
 ## 📚 Overview
 
-This section covers **HTML**, the language that gives structure and meaning to web content.  
-It’s organized into **three stages** that build upon each other — from basic syntax to multi-page websites.  
-Through notes, exercises, projects, and a capstone, you will learn to create complete and accessible web pages using only HTML.
+This section introduces **HTML**, the language that gives structure and meaning to web content.
+The content is organized into **three stages**, progressing from basic syntax to multi-page websites, and includes notes, exercises, projects, and a capstone focused on creating complete and accessible HTML pages.
 
 ---
 

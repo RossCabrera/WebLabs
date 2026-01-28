@@ -2,10 +2,10 @@
 
 ## 📚 Overview
 
-This section covers **CSS (Cascading Style Sheets)**, the language used to **style and beautify HTML content**.  
-It’s organized into **six stages**, from basic styling to advanced layout techniques like Flexbox and Grid.  
+This section covers **CSS (Cascading Style Sheets)**, the language used to style and enhance **HTML content**.
+The content is organized into **six stages**, progressing from basic styling to advanced layout techniques such as Flexbox and Grid.
 
-Through notes, exercises, projects, and a capstone, you will learn to create visually appealing and responsive websites using only HTML and CSS.
+It includes notes, exercises and projects focused on creating visually appealing and responsive websites using only HTML and CSS.
 
 ---
 
@@ -64,7 +64,6 @@ Browsers read your CSS rules and render your styles on top of HTML content.
 ```plaintext
 02-CSS/
 ├── README.md
-├── capstone-project/
 ├── notes/
 │   ├── 01-intro-to-CSS.md
 │   ├── 02-css-properties.md

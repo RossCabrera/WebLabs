@@ -2,9 +2,9 @@
 
 ## 📚 Overview
 
-This section covers **Bootstrap**, a popular CSS framework for building **responsive, mobile-first websites quickly**.  
+This section covers Bootstrap, a popular CSS framework for building responsive, mobile-first websites efficiently.
 
-Through notes, practice snippets, and a project, you will learn how to use Bootstrap’s **grid system, components, and utilities** to create polished layouts that combine with custom CSS.
+It includes notes, practice snippets, and a project focused on using Bootstrap’s grid system, components, and utilities to create polished layouts that integrate with custom CSS.
 
 ---
 
