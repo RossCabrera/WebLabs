@@ -1,4 +1,4 @@
-# ✏️ The Document Object Model
+# ✏️ The Document Object Model Study Notes
 
 ## 📚 Table of Contents
 
