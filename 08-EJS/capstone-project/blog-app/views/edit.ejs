@@ -1,0 +1,55 @@
+<%- include('partials/header') %>
+
+<div class="container">
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1 class="page-title">Edit Post</h1>
+    <p class="page-subtitle">Update your post content</p>
+  </div>
+  
+  <!-- Edit Post Form -->
+  <div class="form-container">
+    <form action="/posts/<%= post.id %>?_method=PUT" method="POST" class="post-form">
+      <!-- Title Input (pre-filled) -->
+      <div class="form-group">
+        <label for="title" class="form-label">Post Title</label>
+        <input 
+          type="text" 
+          id="title" 
+          name="title" 
+          class="form-input" 
+          value="<%= post.title %>"
+          required
+          maxlength="200"
+          autofocus
+        >
+      </div>
+      
+      <!-- Content Textarea (pre-filled) -->
+      <div class="form-group">
+        <label for="content" class="form-label">Post Content</label>
+        <textarea 
+          id="content" 
+          name="content" 
+          class="form-textarea" 
+          required
+          rows="12"
+        ><%= post.content %></textarea>
+      </div>
+      
+      <!-- Post Metadata Display -->
+      <div class="post-meta">
+        <p><strong>Created:</strong> <%= formatDate(post.createdAt) %></p>
+        <p><strong>Last Updated:</strong> <%= formatDate(post.updatedAt) %></p>
+      </div>
+      
+      <!-- Form Actions -->
+      <div class="form-actions">
+        <button type="submit" class="btn-primary btn-large">Update Post</button>
+        <a href="/" class="btn-secondary btn-large">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

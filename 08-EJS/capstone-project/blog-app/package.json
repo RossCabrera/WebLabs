@@ -1,0 +1,19 @@
+{
+  "name": "blog-app",
+  "version": "1.0.0",
+  "description": "Server-side rendered blog app built with Express and EJS using in-memory storage.",
+  "license": "ISC",
+  "author": "Ross Cabrera",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ejs": "^4.0.1",
+    "express": "^5.2.1",
+    "method-override": "^3.0.0"
+  }
+}

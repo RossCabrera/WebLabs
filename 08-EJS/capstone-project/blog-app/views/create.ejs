@@ -1,0 +1,63 @@
+<%- include('partials/header') %>
+
+<div class="container">
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1 class="page-title">Create New Post</h1>
+    <p class="page-subtitle">Share your thoughts with the world</p>
+  </div>
+  
+  <!-- Create Post Form -->
+  <div class="form-container">
+    <form action="/posts" method="POST" class="post-form">
+      <!-- Title Input -->
+      <div class="form-group">
+        <label for="title" class="form-label">Post Title</label>
+        <input 
+          type="text" 
+          id="title" 
+          name="title" 
+          class="form-input" 
+          placeholder="Enter a catchy title..."
+          required
+          maxlength="200"
+          autofocus
+        >
+        <small class="form-hint">A clear, engaging title helps readers understand what your post is about</small>
+      </div>
+      
+      <!-- Content Textarea -->
+      <div class="form-group">
+        <label for="content" class="form-label">Post Content</label>
+        <textarea 
+          id="content" 
+          name="content" 
+          class="form-textarea" 
+          placeholder="Write your post content here..."
+          required
+          rows="12"
+        ></textarea>
+        <small class="form-hint">Express your ideas clearly and thoughtfully</small>
+      </div>
+      
+      <!-- Form Actions -->
+      <div class="form-actions">
+        <button type="submit" class="btn-primary btn-large">Publish Post</button>
+        <a href="/" class="btn-secondary btn-large">Cancel</a>
+      </div>
+    </form>
+  </div>
+  
+  <!-- Writing Tips Section -->
+  <div class="tips-section">
+    <h3>✨ Writing Tips</h3>
+    <ul class="tips-list">
+      <li>Start with a compelling hook to grab readers' attention</li>
+      <li>Break your content into short, digestible paragraphs</li>
+      <li>Use clear and simple language</li>
+      <li>Proofread before publishing</li>
+    </ul>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

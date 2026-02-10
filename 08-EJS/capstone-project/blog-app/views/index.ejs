@@ -1,0 +1,54 @@
+<%- include('partials/header') %>
+
+<div class="container">
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1 class="page-title">Welcome to My Blog</h1>
+    <p class="page-subtitle">Sharing thoughts, ideas, and knowledge</p>
+  </div>
+  
+  <!-- Blog Posts Grid -->
+  <% if (posts.length > 0) { %>
+    <div class="posts-grid">
+      <% posts.forEach(post => { %>
+        <article class="post-card">
+          <!-- Post Header -->
+          <div class="post-card-header">
+            <h2 class="post-card-title">
+              <a href="/posts/<%= post.id %>"><%= post.title %></a>
+            </h2>
+            <time class="post-date" datetime="<%= post.createdAt %>">
+              <%= formatDate(post.createdAt) %>
+            </time>
+          </div>
+          
+          <!-- Post Preview -->
+          <div class="post-card-content">
+            <p><%= post.content.substring(0, 200) %><%= post.content.length > 200 ? '...' : '' %></p>
+          </div>
+          
+          <!-- Post Actions -->
+          <div class="post-card-actions">
+            <a href="/posts/<%= post.id %>" class="btn-secondary">Read More</a>
+            <a href="/posts/<%= post.id %>/edit" class="btn-edit">Edit</a>
+            <form action="/posts/<%= post.id %>?_method=DELETE" method="POST" class="delete-form">
+              <button type="submit" class="btn-delete" onclick="return confirm('Are you sure you want to delete this post?')">
+                Delete
+              </button>
+            </form>
+          </div>
+        </article>
+      <% }) %>
+    </div>
+  <% } else { %>
+    <!-- Empty State -->
+    <div class="empty-state">
+      <div class="empty-state-icon">📝</div>
+      <h2>No posts yet</h2>
+      <p>Start sharing your thoughts by creating your first blog post!</p>
+      <a href="/posts/new" class="btn-primary btn-large">Create Your First Post</a>
+    </div>
+  <% } %>
+</div>
+
+<%- include('partials/footer') %>
