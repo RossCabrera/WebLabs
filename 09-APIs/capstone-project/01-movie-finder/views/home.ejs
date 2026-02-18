@@ -1,0 +1,48 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<main>
+  <section class="hero">
+
+    <!-- Decorative strip bar -->
+    <div class="hero-strips">
+      <% for(let i = 0; i < 30; i++) { %>
+        <div></div>
+      <% } %>
+    </div>
+
+    <p class="hero-eyebrow">Your cinematic universe starts here</p>
+
+    <h1 class="hero-title">
+      FIND YOUR<br><span>FILM</span>
+    </h1>
+
+    <p class="hero-sub">
+      Search millions of movies. Discover plots, ratings, cast, and more.
+    </p>
+
+    <!-- Main search form -->
+    <form class="hero-form" action="/search" method="GET" role="search">
+      <input
+        type="text"
+        name="q"
+        placeholder="e.g. Inception, The Godfather, Dune…"
+        aria-label="Search for a movie"
+        autocomplete="off"
+        autofocus
+      />
+      <button type="submit">SEARCH</button>
+    </form>
+
+    <!-- Quick genre suggestions (link to pre-filled searches) -->
+    <div class="hero-genres">
+      <% const genres = ['Action', 'Sci-Fi', 'Horror', 'Drama', 'Comedy', 'Thriller', 'Animation']; %>
+      <% genres.forEach(g => { %>
+        <a href="/search?q=<%= g %>" class="genre-tag"><%= g %></a>
+      <% }) %>
+    </div>
+
+  </section>
+</main>
+
+<%- include('partials/footer') %>

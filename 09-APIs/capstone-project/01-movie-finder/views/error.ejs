@@ -1,0 +1,41 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<main>
+  <div class="error-page">
+
+    <div class="error-code" data-text="<%= tooMany ? '?' : '404' %>">
+      <%= tooMany ? '?' : '404' %>
+    </div>
+
+    <h2 class="error-msg"><%= title %></h2>
+    <p class="error-sub"><%= message %></p>
+
+    <!-- Refine search form when too broad -->
+    <% if (tooMany && query) { %>
+      <form class="hero-form" action="/search" method="GET"
+            style="margin-bottom: 1.5rem; opacity:1; animation:none;">
+        <input
+          type="text"
+          name="q"
+          value="<%= query %>"
+          placeholder="Refine your search…"
+          autocomplete="off"
+          autofocus
+        />
+        <button type="submit">SEARCH</button>
+      </form>
+    <% } %>
+
+    <a href="/" class="btn-primary" style="margin-top: 1rem;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2.5">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+      Back to Home
+    </a>
+
+  </div>
+</main>
+
+<%- include('partials/footer') %>

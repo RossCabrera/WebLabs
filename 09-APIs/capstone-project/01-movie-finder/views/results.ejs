@@ -1,0 +1,127 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<main>
+  <!-- Header -->
+  <div class="page-header">
+    <h1>Results for <em>"<%= query %>"</em></h1>
+    <p>
+      <%= totalResults %> movies found
+      <% if (totalPages > 1) { %>
+        &nbsp;·&nbsp; Page <%= currentPage %> of <%= totalPages %>
+      <% } %>
+    </p>
+  </div>
+
+  <!-- Movie grid -->
+  <div class="results-grid">
+    <% movies.forEach(movie => { %>
+      <article class="movie-card">
+        <a href="/movie/<%= movie.imdbID %>">
+
+          <!-- Poster -->
+          <div class="card-poster">
+            <% if (movie.Poster && movie.Poster !== 'N/A') { %>
+              <img
+                src="<%= movie.Poster %>"
+                alt="<%= movie.Title %> poster"
+                loading="lazy"
+              />
+            <% } else { %>
+              <div class="no-poster">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4">
+                  <rect x="2" y="2" width="20" height="20" rx="2"/>
+                  <path d="M9 22V12h6v10M2 7h20"/>
+                </svg>
+                <span>No poster</span>
+              </div>
+            <% } %>
+
+            <!-- Hover overlay -->
+            <div class="card-overlay">
+              <span>VIEW DETAILS</span>
+            </div>
+          </div>
+
+          <!-- Info -->
+          <div class="card-info">
+            <p class="card-title"><%= movie.Title %></p>
+            <p class="card-year"><%= movie.Year %></p>
+          </div>
+
+        </a>
+      </article>
+    <% }) %>
+  </div>
+
+  <!-- ── Pagination ── -->
+  <% if (totalPages > 1) { %>
+    <nav class="pagination" aria-label="Page navigation">
+
+      <!-- Prev -->
+      <% if (currentPage > 1) { %>
+        <a href="/search?q=<%= encodeURIComponent(query) %>&page=<%= currentPage - 1 %>" class="page-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+          Prev
+        </a>
+      <% } else { %>
+        <span class="page-btn disabled">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+          Prev
+        </span>
+      <% } %>
+
+      <!-- Page numbers  -->
+      <div class="page-numbers">
+        <%
+          const window = 2;
+          const start  = Math.max(1, currentPage - window);
+          const end    = Math.min(totalPages, currentPage + window);
+        %>
+
+        <% if (start > 1) { %>
+          <a href="/search?q=<%= encodeURIComponent(query) %>&page=1" class="page-num">1</a>
+          <% if (start > 2) { %><span class="page-ellipsis">…</span><% } %>
+        <% } %>
+
+        <% for (let p = start; p <= end; p++) { %>
+          <% if (p === currentPage) { %>
+            <span class="page-num active"><%= p %></span>
+          <% } else { %>
+            <a href="/search?q=<%= encodeURIComponent(query) %>&page=<%= p %>" class="page-num"><%= p %></a>
+          <% } %>
+        <% } %>
+
+        <% if (end < totalPages) { %>
+          <% if (end < totalPages - 1) { %><span class="page-ellipsis">…</span><% } %>
+          <a href="/search?q=<%= encodeURIComponent(query) %>&page=<%= totalPages %>" class="page-num"><%= totalPages %></a>
+        <% } %>
+      </div>
+
+      <!-- Next -->
+      <% if (currentPage < totalPages) { %>
+        <a href="/search?q=<%= encodeURIComponent(query) %>&page=<%= currentPage + 1 %>" class="page-btn">
+          Next
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </a>
+      <% } else { %>
+        <span class="page-btn disabled">
+          Next
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </span>
+      <% } %>
+
+    </nav>
+  <% } %>
+
+</main>
+
+<%- include('partials/footer') %>

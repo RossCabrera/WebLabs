@@ -1,0 +1,162 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<main class="movie-detail">
+
+  <!-- Blurred backdrop using the poster -->
+  <div class="movie-backdrop">
+    <% if (movie.Poster && movie.Poster !== 'N/A') { %>
+      <img class="movie-backdrop-img" src="<%= movie.Poster %>" alt="" aria-hidden="true" />
+    <% } %>
+    <div class="movie-backdrop-gradient"></div>
+  </div>
+
+  <!-- Main content -->
+  <div class="movie-content">
+    <div class="movie-layout">
+
+      <!-- Left column: poster -->
+      <aside class="movie-poster-wrap">
+        <% if (movie.Poster && movie.Poster !== 'N/A') { %>
+          <img src="<%= movie.Poster %>" alt="<%= movie.Title %> poster" />
+        <% } else { %>
+          <div class="no-poster-lg">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4">
+              <rect x="2" y="2" width="20" height="20" rx="2"/>
+              <path d="M9 22V12h6v10M2 7h20"/>
+            </svg>
+            <span>No poster available</span>
+          </div>
+        <% } %>
+      </aside>
+
+      <!-- Right column: info -->
+      <section class="movie-info">
+
+        <!-- Back button -->
+        <a href="javascript:history.back()" class="back-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+          Back to results
+        </a>
+
+        <!-- Meta: year · runtime · rated -->
+        <div class="movie-meta">
+          <span><%= movie.Year %></span>
+          <% if (movie.Runtime !== 'N/A') { %>
+            <div class="dot"></div>
+            <span><%= movie.Runtime %></span>
+          <% } %>
+          <% if (movie.Rated !== 'N/A') { %>
+            <div class="dot"></div>
+            <span><%= movie.Rated %></span>
+          <% } %>
+          <% if (movie.Country !== 'N/A') { %>
+            <div class="dot"></div>
+            <span><%= movie.Country.split(',')[0] %></span>
+          <% } %>
+        </div>
+
+        <!-- Title -->
+        <h1 class="movie-title-lg"><%= movie.Title %></h1>
+
+        <!-- Genre tags -->
+        <% if (movie.GenreArray.length > 0) { %>
+          <div class="genre-tags">
+            <% movie.GenreArray.forEach(g => { %>
+              <span class="gtag"><%= g %></span>
+            <% }) %>
+          </div>
+        <% } %>
+
+        <!-- Ratings -->
+        <div class="ratings-row">
+          <% if (movie.ImdbRating) { %>
+            <div class="rating-box">
+              <div class="r-label">IMDb</div>
+              <div class="r-value"><%= movie.ImdbRating %></div>
+              <div class="r-sub">/ 10</div>
+            </div>
+          <% } %>
+
+          <% movie.Ratings.forEach(r => { %>
+            <% if (r.Source !== 'Internet Movie Database') { %>
+              <div class="rating-box">
+                <div class="r-label">
+                  <%= r.Source === 'Rotten Tomatoes' ? '🍅 RT' : r.Source === 'Metacritic' ? '📊 META' : r.Source %>
+                </div>
+                <div class="r-value" style="font-size: 1.3rem; padding-top: 0.2rem"><%= r.Value %></div>
+              </div>
+            <% } %>
+          <% }) %>
+        </div>
+
+        <!-- Plot -->
+        <div class="info-section">
+          <h3>Plot</h3>
+          <p><%= movie.Plot !== 'N/A' ? movie.Plot : 'No plot summary available.' %></p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Director -->
+        <% if (movie.Director !== 'N/A') { %>
+          <div class="info-section">
+            <h3>Director</h3>
+            <p><%= movie.Director %></p>
+          </div>
+        <% } %>
+
+        <!-- Writers -->
+        <% if (movie.Writer !== 'N/A') { %>
+          <div class="info-section">
+            <h3>Writers</h3>
+            <p><%= movie.Writer %></p>
+          </div>
+        <% } %>
+
+        <!-- Cast -->
+        <% if (movie.Actors !== 'N/A') { %>
+          <div class="info-section">
+            <h3>Cast</h3>
+            <div class="cast-list">
+              <% movie.Actors.split(', ').forEach(actor => { %>
+                <span class="cast-pill"><%= actor.trim() %></span>
+              <% }) %>
+            </div>
+          </div>
+        <% } %>
+
+        <!-- Language / Box office -->
+        <div class="divider"></div>
+
+        <div class="info-section" style="display:flex; gap: 2rem; flex-wrap:wrap;">
+          <% if (movie.Language !== 'N/A') { %>
+            <div>
+              <h3>Language</h3>
+              <p><%= movie.Language %></p>
+            </div>
+          <% } %>
+          <% if (movie.BoxOffice && movie.BoxOffice !== 'N/A') { %>
+            <div>
+              <h3>Box Office</h3>
+              <p><%= movie.BoxOffice %></p>
+            </div>
+          <% } %>
+          <% if (movie.Released !== 'N/A') { %>
+            <div>
+              <h3>Released</h3>
+              <p><%= movie.Released %></p>
+            </div>
+          <% } %>
+        </div>
+
+      </section>
+
+    </div>
+  </div>
+
+</main>
+
+<%- include('partials/footer') %>
