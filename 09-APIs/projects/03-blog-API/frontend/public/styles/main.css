@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ── Variables ─────────────────────────────────────────────── */
+:root {
+  --bg:        #0f0f13;
+  --surface:   #18181f;
+  --surface2:  #22222c;
+  --border:    #2e2e3a;
+  --accent:    #e8c97a;
+  --accent2:   #c96a4a;
+  --text:      #e8e6e0;
+  --text-muted:#8a8794;
+  --radius:    14px;
+  --shadow:    0 8px 32px rgba(0,0,0,0.45);
+  --transition:0.22s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ── Reset ──────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Base ────────────────────────────────────────────────────── */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+  line-height: 1.65;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 20% -10%, rgba(232,201,122,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 110%, rgba(201,106,74,0.06) 0%, transparent 60%);
+}
+
+/* ── Container ───────────────────────────────────────────────── */
+.container {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 60px 28px 100px;
+}
+
+/* ── Headings ────────────────────────────────────────────────── */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+h1::after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 50%;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  margin-top: 10px;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+/* ── New Post Button ─────────────────────────────────────────── */
+#newPostBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: #0f0f13;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 10px 22px;
+  border-radius: 50px;
+  margin-bottom: 44px;
+  transition: var(--transition);
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 16px rgba(232,201,122,0.18);
+}
+
+#newPostBtn::before { content: '+'; font-size: 1.2rem; }
+
+#newPostBtn:hover {
+  background: #f0d98a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(232,201,122,0.28);
+}
+
+/* ── Posts List ──────────────────────────────────────────────── */
+#postsList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+#postsList p {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ── Post Card ───────────────────────────────────────────────── */
+#postsList li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+#postsList li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--accent), var(--accent2));
+  opacity: 0;
+  transition: var(--transition);
+}
+
+#postsList li:hover {
+  border-color: rgba(232,201,122,0.2);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+#postsList li:hover::before { opacity: 1; }
+
+#postsList small {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+#postsList p {
+  margin: 12px 0 16px;
+  color: #b0adb8;
+  font-size: 0.95rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-style: normal;
+}
+
+/* ── Post Actions ────────────────────────────────────────────── */
+#postsList div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+a.edit {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  transition: var(--transition);
+}
+
+a.edit::before { content: '✎'; font-size: 1rem; }
+
+a.edit:hover { color: #f0d98a; }
+
+button.delete {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid rgba(201,106,74,0.35);
+  color: var(--accent2);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 6px;
+  transition: var(--transition);
+  letter-spacing: 0.03em;
+}
+
+button.delete::before { content: '✕'; }
+
+button.delete:hover {
+  background: rgba(201,106,74,0.1);
+  border-color: var(--accent2);
+}
+
+/* ── Form ────────────────────────────────────────────────────── */
+form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  padding: 13px 16px;
+  transition: var(--transition);
+  outline: none;
+  resize: vertical;
+}
+
+input[type="text"]::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: var(--accent);
+  background: #1e1e28;
+  box-shadow: 0 0 0 3px rgba(232,201,122,0.08);
+}
+
+textarea {
+  min-height: 220px;
+  line-height: 1.7;
+}
+
+/* ── Submit Button ───────────────────────────────────────────── */
+button.full-width,
+button[type="submit"].full-width {
+  width: 100%;
+  background: linear-gradient(135deg, var(--accent) 0%, #d4b660 100%);
+  color: #0f0f13;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 6px;
+  box-shadow: 0 4px 16px rgba(232,201,122,0.2);
+}
+
+button.full-width:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(232,201,122,0.3);
+  filter: brightness(1.07);
+}
+
+button.full-width:active { transform: translateY(0); }
+
+/* ── Back Link ───────────────────────────────────────────────── */
+a[href="/"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: var(--transition);
+  margin-top: 28px;
+}
+
+a[href="/"]:hover { color: var(--accent); }
+
+/* ── Fade-in ─────────────────────────────────────────────────── */
+.container { animation: fadeUp 0.5s ease both; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+#postsList li {
+  animation: fadeUp 0.4s ease both;
+}
+
+#postsList li:nth-child(1) { animation-delay: 0.05s; }
+#postsList li:nth-child(2) { animation-delay: 0.1s; }
+#postsList li:nth-child(3) { animation-delay: 0.15s; }
+#postsList li:nth-child(4) { animation-delay: 0.2s; }
+#postsList li:nth-child(5) { animation-delay: 0.25s; }
