@@ -83,6 +83,6 @@ app.post("/", async (req, res) => {
 // Start the server
 app.listen(PORT, () => {
   console.log(`🚀 Server is running on http://localhost:${PORT}`);
-  console.log(`📝 Blog application is ready!`);
+  console.log(`✅ Application is ready!`);
 });
 

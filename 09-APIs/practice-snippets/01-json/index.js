@@ -49,5 +49,5 @@ app.post("/recipe", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`🚀 Server is running on http://localhost:${PORT}`);
-  console.log(`📝 Blog application is ready!`);
+  console.log(`✅ Application is ready!`);
 });
