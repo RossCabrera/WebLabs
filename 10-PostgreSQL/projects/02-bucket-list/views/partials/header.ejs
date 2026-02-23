@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title><%= typeof title !== 'undefined' ? title : 'Bucket List' %> </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="/users" class="logo">
+    <span class="logo-icon">🪣</span>
+    <span class="logo-text">BucketList</span>
+  </a>
+  <% if (typeof users !== 'undefined' && users.length > 0) { %>
+  <nav class="user-tabs">
+    <% users.forEach(u => { %>
+      <a href="/users/<%= u.id %>" 
+         class="tab <%= (typeof user !== 'undefined' && user.id === u.id) ? 'active' : '' %>">
+        <span class="tab-avatar"><%= u.name.charAt(0).toUpperCase() %></span>
+        <%= u.name %>
+      </a>
+    <% }) %>
+  </nav>
+  <% } %>
+  <a href="/users" class="btn-add-user">+ New Person</a>
+</header>

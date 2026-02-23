@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+
+<div class="quiz-container">
+  <div class="score-bar">
+    🏆 Score: <span class="score-number"><%= score %></span>
+  </div>
+
+  <div class="question-card">
+    <p class="question-label">What is the capital of...</p>
+    <!-- Flag emoji using the country's flag code from DB -->
+    <div class="flag-display">
+        <span class="flag-emoji"><%= question.flag %></span>
+    </div>
+      <h2 class="country-name"><%= question.country %></h2>
+
+    <form action="/answer" method="POST" class="answers-grid">
+      <!-- Hidden fields to pass data to the server -->
+      <input type="hidden" name="correct" value="<%= question.capital %>">
+      <input type="hidden" name="score" value="<%= score %>">
+
+      <% allAnswers.forEach(ans => { %>
+        <button type="submit" name="answer" value="<%= ans %>" class="answer-btn">
+          <%= ans %>
+        </button>
+      <% }) %>
+    </form>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

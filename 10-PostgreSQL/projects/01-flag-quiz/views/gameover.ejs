@@ -1,0 +1,19 @@
+<%- include('partials/header') %>
+
+<div class="gameover-container">
+  <div class="gameover-card">
+    <div class="gameover-emoji">💥</div>
+    <h2>Game Over!</h2>
+    <p class="wrong-answer">You answered: <strong><%= answer %></strong></p>
+    <p class="correct-answer">The correct answer was: <strong><%= correct %></strong></p>
+
+    <div class="final-score">
+      🏆 Final Score: <span><%= score %></span>
+    </div>
+
+    <a href="/quiz" class="btn-start">🔄 Try Again</a>
+    <a href="/" class="btn-home">🏠 Home</a>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

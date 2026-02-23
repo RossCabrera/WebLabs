@@ -1,0 +1,64 @@
+<%- include('./partials/header', { title: 'Home', users: users }) %>
+
+<main class="page-users">
+
+  <div class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">✦ Your life, your list</p>
+      <h1 class="hero-title">What do you want<br>to <em>do</em> before you die?</h1>
+      <p class="hero-sub">Add yourself below, then start building your bucket list. Track dreams, mark wins, live boldly.</p>
+    </div>
+    <div class="hero-art">🌍 🏔️ 🎸 🌊 🚀 🎨 🦋 🍜</div>
+  </div>
+
+  <div class="users-section">
+
+    <div class="add-user-card">
+      <h2>Join the adventure</h2>
+      <p>Enter your name to create your personal bucket list.</p>
+      <% if (error) { %>
+        <div class="alert-error"><%= error %></div>
+      <% } %>
+      <form action="/users" method="POST" class="add-user-form">
+        <div class="input-group">
+          <input 
+            type="text" 
+            name="name" 
+            placeholder="Your name..." 
+            maxlength="100"
+            required
+            autocomplete="off"
+            class="input-name"
+          />
+          <button type="submit" class="btn-primary">Start My List →</button>
+        </div>
+      </form>
+    </div>
+
+    <% if (users.length > 0) { %>
+    <div class="existing-users">
+      <h2 class="section-label">Pick up where you left off</h2>
+      <div class="user-cards-grid">
+        <% users.forEach(u => { %>
+          <a href="/users/<%= u.id %>" class="user-card">
+            <div class="user-card-avatar"><%= u.name.charAt(0).toUpperCase() %></div>
+            <div class="user-card-info">
+              <div class="user-card-name"><%= u.name %></div>
+              <div class="user-card-date">Since <%= new Date(u.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) %></div>
+            </div>
+            <span class="user-card-arrow">→</span>
+          </a>
+        <% }) %>
+      </div>
+    </div>
+    <% } else { %>
+    <div class="empty-state">
+      <div class="empty-icon">🌱</div>
+      <p>No one here yet. Be the first to add yourself!</p>
+    </div>
+    <% } %>
+
+  </div>
+</main>
+
+<%- include('./partials/footer') %>

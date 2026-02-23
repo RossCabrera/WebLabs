@@ -1,0 +1,135 @@
+<%- include('./partials/header', { title: user.name + "'s List", users: users, user: user }) %>
+
+<main class="page-dashboard">
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-left">
+      <div class="user-greeting">
+        <span class="user-avatar-lg"><%= user.name.charAt(0).toUpperCase() %></span>
+        <div>
+          <h1 class="user-name-title"><%= user.name %>'s Bucket List</h1>
+          <p class="user-stats-text">
+            <% if (total === 0) { %>
+              No items yet — add your first dream below! 🌱
+            <% } else { %>
+              <strong><%= doneCount %></strong> of <strong><%= total %></strong> dreams achieved · <%= progress %>% done
+            <% } %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="stats-right">
+      <div class="stat-pill"><span class="stat-num"><%= total - doneCount %></span><span class="stat-label">Pending</span></div>
+      <div class="stat-pill done"><span class="stat-num"><%= doneCount %></span><span class="stat-label">Done</span></div>
+    </div>
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <% if (total > 0) { %>
+  <div class="progress-section">
+    <div class="progress-track">
+      <div class="progress-fill" style="width: <%= progress %>%"></div>
+    </div>
+    <% if (progress === 100) { %>
+      <p class="progress-celebrate">🎉 You've completed everything! Add more dreams!</p>
+    <% } %>
+  </div>
+  <% } %>
+
+  <div class="dashboard-layout">
+
+    <!-- BUCKET LIST -->
+    <div class="items-section">
+      <% if (items.length === 0) { %>
+        <div class="empty-dashboard">
+          <div class="empty-icon">🗺️</div>
+          <h3>Your list is empty</h3>
+          <p>Use the form to add your first bucket list item. The world is waiting!</p>
+        </div>
+      <% } else { %>
+        <ul class="items-list">
+          <% items.forEach((item, index) => { %>
+          <li class="item-card <%= item.done ? 'item-done' : '' %>" style="animation-delay: <%= index * 0.04 %>s">
+            
+            <div class="item-check">
+              <form action="/users/<%= user.id %>/items/<%= item.id %>/toggle" method="POST">
+                <button type="submit" class="check-btn" title="<%= item.done ? 'Mark as pending' : 'Mark as done' %>">
+                  <% if (item.done) { %>
+                    <span class="check-icon done-icon">✓</span>
+                  <% } else { %>
+                    <span class="check-icon pending-icon"></span>
+                  <% } %>
+                </button>
+              </form>
+            </div>
+
+            <div class="item-content">
+              <div class="item-title"><%= item.title %></div>
+              <% if (item.description) { %>
+                <div class="item-desc"><%= item.description %></div>
+              <% } %>
+              <div class="item-meta">
+                <span class="item-date">Added <%= new Date(item.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) %></span>
+                <% if (item.done) { %><span class="item-badge done-badge">✓ Done</span><% } else { %><span class="item-badge pending-badge">Pending</span><% } %>
+              </div>
+            </div>
+
+            <form action="/users/<%= user.id %>/items/<%= item.id %>/delete" method="POST" class="item-delete-form">
+              <button type="submit" class="delete-btn" title="Delete item" onclick="return confirm('Delete this item?')">✕</button>
+            </form>
+
+          </li>
+          <% }) %>
+        </ul>
+      <% } %>
+    </div>
+
+    <!-- ADD ITEM FORM -->
+    <div class="add-item-sidebar">
+      <div class="add-item-card">
+        <h2>Add a new dream</h2>
+        <p>What's on your bucket list?</p>
+        <form action="/users/<%= user.id %>/items" method="POST" class="add-item-form">
+          <label for="title">Dream / Goal <span class="required">*</span></label>
+          <input 
+            type="text" 
+            id="title"
+            name="title" 
+            placeholder="e.g. See the Northern Lights" 
+            required 
+            maxlength="255"
+            autocomplete="off"
+          />
+          <label for="description">Details <span class="optional">(optional)</span></label>
+          <textarea 
+            id="description"
+            name="description" 
+            placeholder="Where, when, how? Add context..." 
+            rows="3"
+            maxlength="1000"
+          ></textarea>
+          <button type="submit" class="btn-primary btn-full">Add to My List ✦</button>
+        </form>
+      </div>
+
+      <div class="inspiration-card">
+        <h3>Need inspiration?</h3>
+        <ul class="inspiration-list" id="inspirationList">
+          <li>🏔️ Hike a 14,000ft mountain</li>
+          <li>🌊 Learn to surf</li>
+          <li>🌍 Visit 10 countries</li>
+          <li>🎸 Learn an instrument</li>
+          <li>🍜 Take a cooking class abroad</li>
+          <li>🚀 See a rocket launch</li>
+          <li>🦋 Go skydiving</li>
+          <li>📖 Write a book</li>
+        </ul>
+        <button class="btn-shuffle" onclick="shuffleInspiration()">↺ Shuffle</button>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<%- include('./partials/footer') %>
