@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MyAwesomeApp > should match snapshot 1`] = `
+<div>
+  <div>
+    <h1>
+      My Awesome App
+    </h1>
+    <p>
+      This is my awesome app built with React and TypeScript!
+    </p>
+    <h2>
+       
+      Ross
+       
+      Cabrera
+       
+    </h2>
+  </div>
+</div>
+`;
