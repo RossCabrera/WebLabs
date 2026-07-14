@@ -2,6 +2,7 @@
 **/node_modules/
 .nvmrc
 **.env
+**/text/*.txt
 
 # Python
 **/.venv/
