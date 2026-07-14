@@ -78,7 +78,31 @@ It is commonly used in **Express.js applications** to render dynamic content on 
 │   ├── 03-passing-data/
 │   └── 04-partials/
 ├── project/
+│   └── 01-band-generator/
 └── README.md
+```
+
+---
+
+## 🚀 Getting Started
+
+All snippets and projects follow the same pattern:
+
+```bash
+cd practice-snippets/01-ejs
+bun install && bun index.js
+```
+
+Repeat for each snippet. Visit `http://localhost:3000` to see the output.
+
+```bash
+# Band Generator project
+cd project/01-band-generator
+bun install && bun index.js
+
+# Blog App capstone
+cd capstone-project/blog-app
+bun install && bun server.js
 ```
 
 ---

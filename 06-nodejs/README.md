@@ -83,6 +83,24 @@ Node.js uses an **event-driven, non-blocking I/O model**, making it efficient an
 
 ---
 
+## 🚀 Getting Started
+
+```bash
+# Practice snippets — no install needed
+node practice-snippets/01-using-node/index.js
+node practice-snippets/02-native-modules/index.js
+
+# 03-npm snippet
+cd practice-snippets/03-npm
+bun install && bun index.js
+
+# QR Code Generator project
+cd project/qr-code-generator
+bun install && bun index.js
+```
+
+---
+
 ## 🎯 Goal
 
 By the end of this section, you will be able to:
