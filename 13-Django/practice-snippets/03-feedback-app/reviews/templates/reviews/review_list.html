@@ -1,0 +1,59 @@
+{% extends "reviews/base.html" %}
+
+{% block title %}All Reviews{% endblock %}
+{% block meta_description %}Browse all submitted reviews and ratings.{% endblock %}
+
+{% block content %}
+
+  <!-- ============================================================
+    REVIEWS LIST PAGE
+    Powered by ReviewsListView (ListView).
+    "reviews" queryset is passed via context_object_name = "reviews".
+
+    NOTE: get_queryset() is commented out in views.py, but you
+    can uncomment it to filter only reviews with rating > 4:
+      def get_queryset(self):
+          base_query = super().get_queryset()
+          data = base_query.filter(rating__gt=4)
+          return data
+  ============================================================ -->
+
+  <div class="page-header" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+    <div>
+      <h1>All Reviews</h1>
+      <p>{{ reviews|length }} review{{ reviews|length|pluralize }} submitted so far.</p>
+    </div>
+
+    <!-- Quick link to submit a new review -->
+    <a href="/" class="btn btn-primary">+ Add Review</a>
+  </div>
+
+  {% if reviews %}
+    <div class="reviews-grid">
+      {% for review in reviews %}
+
+        <!-- Each review links to its detail page: /reviews/<pk> -->
+        <a href="/reviews/{{ review.id }}" class="review-item">
+          <div class="review-item-info">
+            <h3>{{ review.user_name }}</h3>
+            <p>{{ review.review_text|truncatechars:80 }}</p>
+          </div>
+
+          <!-- Rating badge — e.g. ⭐ 4/5 -->
+          <span class="rating-badge">⭐ {{ review.rating }}/5</span>
+        </a>
+
+      {% endfor %}
+    </div>
+
+  {% else %}
+    <!-- Empty state shown when no reviews exist yet -->
+    <div class="empty-state">
+      <p style="font-size:2.5rem; margin-bottom:0.5rem;">📭</p>
+      <h2>No Reviews Yet</h2>
+      <p>Be the first to leave one!</p>
+      <a href="/" class="btn btn-primary mt-3">Submit a Review</a>
+    </div>
+  {% endif %}
+
+{% endblock %}

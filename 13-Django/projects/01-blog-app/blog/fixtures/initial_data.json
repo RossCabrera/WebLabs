@@ -1,0 +1,119 @@
+[
+  {
+    "model": "blog.author",
+    "pk": 1,
+    "fields": {
+      "first_name": "Marcus",
+      "last_name": "Aurelius",
+      "email": "marcus.aurelius@example.com"
+    }
+  },
+  {
+    "model": "blog.author",
+    "pk": 2,
+    "fields": {
+      "first_name": "Albert",
+      "last_name": "Camus",
+      "email": "albert.camus@example.com"
+    }
+  },
+  {
+    "model": "blog.author",
+    "pk": 3,
+    "fields": {
+      "first_name": "Seneca",
+      "last_name": "the Younger",
+      "email": "seneca@example.com"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 1,
+    "fields": { "caption": "Stoicism" }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 2,
+    "fields": { "caption": "Philosophy" }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 3,
+    "fields": { "caption": "Mindfulness" }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 4,
+    "fields": { "caption": "Productivity" }
+  },
+  {
+    "model": "blog.post",
+    "pk": 1,
+    "fields": {
+      "title": "The Foundations of Stoicism",
+      "excerpt": "Stoicism is not about suppressing emotion — it is about understanding what lies within your control and acting accordingly.",
+      "image_name": "stoicism.jpg",
+      "date": "2024-01-10",
+      "slug": "the-foundations-of-stoicism-a1b2c",
+      "content": "Stoicism was founded in Athens by Zeno of Citium and later refined by thinkers like Epictetus, Seneca, and Marcus Aurelius. At its core, it teaches the dichotomy of control: some things are up to us, and some are not. Health, wealth, and reputation are preferred indifferents — nice to have, but not necessary for a good life. What matters is the quality of your judgments and your willingness to act virtuously regardless of circumstances. This framework remains one of the most practical philosophies for navigating uncertainty.",
+      "author": 1,
+      "tags": [1, 2]
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 2,
+    "fields": {
+      "title": "Sisyphus and the Absurd",
+      "excerpt": "Camus asked us to imagine Sisyphus happy. His answer to the absurd is not despair but defiant embrace.",
+      "image_name": "sisyphus.jpg",
+      "date": "2024-02-14",
+      "slug": "sisyphus-and-the-absurd-d3e4f",
+      "content": "In The Myth of Sisyphus, Albert Camus confronts the fundamental question of whether life is worth living given its apparent lack of meaning. His answer is the philosophy of the absurd: life has no inherent meaning, but the honest response is not suicide or a leap of faith — it is rebellion. We must imagine Sisyphus happy. The act of pushing the boulder is his own. By owning the struggle, he transcends it. Camus argues that the only way to live authentically is to hold the absurd in full view and keep going anyway.",
+      "author": 2,
+      "tags": [2]
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 3,
+    "fields": {
+      "title": "Shinrin-Yoku: The Medicine of the Forest",
+      "excerpt": "Forest bathing is not hiking. It is the deliberate practice of being present in nature — and the science behind it is compelling.",
+      "image_name": "shinrin-yoku.jpg",
+      "date": "2024-03-05",
+      "slug": "shinrin-yoku-medicine-of-the-forest-g5h6i",
+      "content": "Shinrin-yoku, or forest bathing, originated in Japan in the 1980s as a public health initiative. Unlike hiking, the goal is not distance or exercise — it is immersion. Walking slowly through a forest, breathing deeply, and paying attention to the sounds and smells around you activates the parasympathetic nervous system and reduces cortisol levels. Studies have shown measurable reductions in blood pressure and anxiety after just twenty minutes. In a culture that prizes speed and output, deliberately doing nothing in a forest is a radical act of self-care.",
+      "author": 3,
+      "tags": [3]
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 4,
+    "fields": {
+      "title": "The Library of Alexandria and What We Lost",
+      "excerpt": "The destruction of the Library of Alexandria is one of history's great tragedies — but the story is more complicated than the myth.",
+      "image_name": "alexandria.jpeg",
+      "date": "2024-04-18",
+      "slug": "the-library-of-alexandria-j7k8l",
+      "content": "The Library of Alexandria is often invoked as a symbol of knowledge lost to ignorance and violence. The reality is both more tragic and more nuanced. The library was not destroyed in a single catastrophic event but declined gradually over centuries through neglect, underfunding, and the shifting of political power. At its peak it housed hundreds of thousands of scrolls and attracted scholars from across the ancient world. What was truly lost was not just text but the conversations, the margin notes, the living tradition of inquiry that no copy can fully preserve.",
+      "author": 1,
+      "tags": [2]
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 5,
+    "fields": {
+      "title": "On Building a Routine That Lasts",
+      "excerpt": "Discipline is not willpower. It is design. The routines that stick are the ones built around identity, not outcomes.",
+      "image_name": "routine.jpg",
+      "date": "2024-05-22",
+      "slug": "on-building-a-routine-that-lasts-m9n0o",
+      "content": "Most routines fail not because people lack willpower but because they are built on the wrong foundation. Outcome-based goals — lose ten kilos, finish the book — collapse the moment progress stalls. Identity-based habits work differently: instead of 'I want to run a marathon', you say 'I am a runner'. Every small action either confirms or denies that identity. Seneca wrote that we suffer more in imagination than in reality. The same applies to habits: the dread of starting is always worse than the act itself. Build the smallest possible version of the habit and protect it fiercely.",
+      "author": 3,
+      "tags": [1, 4]
+    }
+  }
+]

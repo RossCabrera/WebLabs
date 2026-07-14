@@ -1,0 +1,67 @@
+{% extends "reviews/base.html" %}
+
+{% block title %}{{ review.user_name }}'s Review{% endblock %}
+{% block meta_description %}Read the review by {{ review.user_name }}.{% endblock %}
+
+{% block content %}
+
+  <!-- ============================================================
+    SINGLE REVIEW DETAIL PAGE
+    Powered by SingleReviewView (DetailView).
+
+    NOTE: The "is_favorite" flag is injected via get_context_data().
+    It reads from the session:
+      favorite_id = request.session.get("favorite_review")
+      context["is_favorite"] = favorite_id == str(loaded_review.id)
+
+    Sessions allow us to persist the favorite across page loads
+    without needing a logged-in user.
+  ============================================================ -->
+
+  <!-- Back link — simple but useful for navigation -->
+  <div class="mt-2" style="margin-bottom:1.5rem;">
+    <a href="/reviews" class="btn btn-outline btn-sm">← Back to Reviews</a>
+  </div>
+
+  <div class="review-detail">
+
+    <h1>{{ review.user_name }}</h1>
+
+    <div class="review-meta">
+      <span class="rating-badge">⭐ {{ review.rating }}/5</span>
+
+      <!-- Show a "favorite" badge if this review is stored in the session -->
+      {% if is_favorite %}
+        <span class="favorite-badge">⭐ My Favorite</span>
+      {% endif %}
+    </div>
+
+    <p class="review-body">{{ review.review_text }}</p>
+
+    <!-- FAVORITE ACTION:
+         If already a favorite: show the badge (handled above in review-meta).
+         Otherwise: render a POST form to set this as the session favorite.
+
+         NOTE: AddFavoriteView handles POST /reviews/favorite.
+         It saves the review ID in request.session["favorite_review"]
+         and redirects back to this page. Using session means no DB change needed. -->
+    {% if is_favorite %}
+      <p style="font-size:0.85rem; color:var(--color-text-muted);">
+        This review is your current favorite. Submit another review as favorite to change it.
+      </p>
+    {% else %}
+      <form action="/reviews/favorite" method="POST">
+        {% csrf_token %}
+
+        <!-- Hidden input passes the review ID to AddFavoriteView -->
+        <input type="hidden" name="review_id" value="{{ review.id }}">
+
+        <button type="submit" class="btn btn-outline">
+          ☆ Mark as Favorite
+        </button>
+      </form>
+    {% endif %}
+
+  </div>
+
+{% endblock %}

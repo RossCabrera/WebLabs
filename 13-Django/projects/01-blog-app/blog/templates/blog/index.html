@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  My Blog
+{% endblock %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static 'blog/post.css' %}" />
+  <link rel="stylesheet" href="{% static 'blog/index.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+  <section id="latest-posts">
+    <h2>Latest Posts</h2>
+
+    <ul>
+      {% for post in posts %}
+        {% include 'blog/includes/post.html' %}
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+
+    <p>
+        I’m a software developer with a strong interest in data science and web development. I enjoy building applications that combine logic, design, and real-world impact.
+    </p>
+
+    <p>
+        I like to keep life interesting—whether that’s setting random goals, reorganizing my entire routine out of nowhere, or just enjoying music and pretending I have everything figured out.
+    </p>
+
+  </section>
+{% endblock %}

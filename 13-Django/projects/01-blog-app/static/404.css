@@ -1,0 +1,143 @@
+/* ─── 404 ERROR PAGE ─── */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* The 404 section is direct body children after header */
+#main-navigation ~ h2,
+#main-navigation ~ p {
+  text-align: center;
+}
+
+/* Target the content block */
+.error-page,
+[class*="404"],
+main.not-found {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+/* Since 404 uses {% block content %}, style the block wrapper */
+body > * + h2,
+.container h2 {
+  margin-top: 3rem;
+}
+
+/* General 404 content styling via section/div if wrapped */
+section h2,
+div h2,
+h2 {
+  font-family: 'UnifrakturMaguntia', cursive;
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+/* The "404" number — add a <span class="error-code"> in your template for best results */
+.error-code {
+  font-family: 'UnifrakturMaguntia', cursive;
+  font-size: clamp(5rem, 18vw, 12rem);
+  color: var(--ink);
+  display: block;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+/* Use Django block content directly: style h2 and p on 404 page */
+{% comment %}Target the actual elements rendered by the template{% endcomment %}
+
+/* Scoped to the page via the unique 404.css load */
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 6vw, 4rem);
+  color: var(--ink);
+  text-align: center;
+  margin: 3rem auto 1rem;
+}
+
+h2::before {
+  content: '404';
+  display: block;
+  font-family: 'UnifrakturMaguntia', cursive;
+  font-size: clamp(4rem, 14vw, 9rem);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--rule), transparent);
+  width: 50%;
+  margin: 0.8rem auto 0;
+}
+
+p {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--ink-faded);
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+p::before {
+  content: '— ';
+  color: var(--rule);
+}
+
+p::after {
+  content: ' —';
+  color: var(--rule);
+}
+
+/* Back link / CTA */
+p a,
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-family: 'IM Fell English', serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid var(--rule);
+  padding: 0.6rem 1.8rem;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+}
+
+p a:hover,
+.back-link:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* Newspaper column flourish on 404 page */
+body::after {
+  content: '✦  Lost in the Archives  ✦';
+  display: block;
+  text-align: center;
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--rule);
+  letter-spacing: 0.3rem;
+  padding: 1.5rem;
+  border-top: 1px solid var(--rule-light);
+}
