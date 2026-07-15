@@ -130,9 +130,31 @@ The application must be developed using:
 
 ------------------------------------------------------------------------
 
+## 🚀 Getting Started
+
+Get a free API key at `https://www.omdbapi.com/apikey.aspx` and activate it via the confirmation email.
+
+Create a `.env` file:
+
+```bash
+API_KEY=your_omdb_key
+BASE_URL=http://www.omdbapi.com
+```
+
+Then install and run:
+
+```bash
+bun install
+bun index.js
+```
+
+Visit `http://localhost:3000` to search for movies.
+
+---
+
 ## 🎯 6. Learning Objectives
 
-By completing this project, students must demonstrate the ability to:
+By completing this project, you will be able to demonstrate the ability to:
 
 - Integrate and consume a third-party REST API.
 - Handle query parameters in Express.

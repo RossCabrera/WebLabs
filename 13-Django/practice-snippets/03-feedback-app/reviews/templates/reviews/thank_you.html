@@ -1,0 +1,29 @@
+{% extends "reviews/base.html" %}
+
+{% block title %}Thank You!{% endblock %}
+{% block meta_description %}Your review was successfully submitted. Thank you!{% endblock %}
+
+{% block content %}
+
+  <!-- ============================================================
+    THANK YOU PAGE
+    Shown after a successful review submission (success_url = "/thank-you").
+    The "message" variable is injected by ThankYouView.get_context_data().
+  ============================================================ -->
+
+  <div class="thank-you-wrapper">
+
+    <div class="thank-you-icon">🎉</div>
+
+    <h1>Thank You!</h1>
+    
+    <p>{{ message }}</p>
+
+    <!-- Give the user a clear next step -->
+    <div class="flex gap-3">
+      <a href="/" class="btn btn-outline">Leave Another Review</a>
+      <a href="/reviews" class="btn btn-primary">View All Reviews</a>
+    </div>
+  </div>
+
+{% endblock %}

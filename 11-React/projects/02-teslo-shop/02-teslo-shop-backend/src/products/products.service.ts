@@ -19,7 +19,7 @@ import {
 
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
-import { PaginationDto } from 'src/common/dtos/pagination.dto';
+import { PaginationDto } from '../common/dtos/pagination.dto';
 
 import { validate as isUUID } from 'uuid';
 import { ProductImage, Product } from './entities';
@@ -203,7 +203,7 @@ export class ProductsService {
     const query = this.productRepository.createQueryBuilder('product');
 
     try {
-      return await query.delete().where({}).execute();
+      return await query.delete().execute();
     } catch (error) {
       this.handleDBExceptions(error);
     }

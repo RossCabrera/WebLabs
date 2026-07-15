@@ -1,0 +1,61 @@
+<!-- NOTE: Extends reviews/base.html for consistent styling and navigation -->
+{% extends "reviews/base.html" %}
+
+{% block title %}All Profiles{% endblock %}
+{% block meta_description %}Browse all user profiles and their uploaded images.{% endblock %}
+
+{% block content %}
+
+  <!-- ============================================================
+    USER PROFILES LIST PAGE
+    Powered by ProfilesView (ListView).
+    context_object_name = "profiles" → available as {{ profiles }}.
+
+    NOTE: profile.image.url works because:
+      - ImageField stores the relative path in the DB
+      - Django combines MEDIA_URL + the stored path to build the full URL
+      - MEDIA_URL = "/user_media/" (see settings.py)
+      - Media files are served in dev via:
+          urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+        (already added at the bottom of feedback/urls.py)
+  ============================================================ -->
+
+  <div class="page-header" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+    <div>
+      <h1>User Profiles</h1>
+      <p>{{ profiles|length }} profile{{ profiles|length|pluralize }} uploaded.</p>
+    </div>
+
+    <!-- Link back to the create profile page -->
+    <a href="/profiles/" class="btn btn-primary">+ Add Profile</a>
+  </div>
+
+  {% if profiles %}
+    <div class="profiles-grid">
+      {% for profile in profiles %}
+
+        <!-- Each card shows the uploaded image -->
+        <div class="profile-card">
+          <!-- NOTE: profile.image.url → requires MEDIA_URL to be configured
+               and media files to be served (see note above) -->
+          <img src="{{ profile.image.url }}" alt="User profile image {{ forloop.counter }}">
+
+          <div class="profile-label">
+            Profile #{{ forloop.counter }}
+          </div>
+        </div>
+
+      {% endfor %}
+    </div>
+
+  {% else %}
+    <!-- Empty state shown when no profiles have been created yet -->
+    <div class="empty-state">
+      <p style="font-size:2.5rem; margin-bottom:0.5rem;">🧑‍💼</p>
+      <h2>No Profiles Yet</h2>
+      <p>Upload a profile image to get started.</p>
+      <a href="/profiles/" class="btn btn-primary mt-3">Create a Profile</a>
+    </div>
+  {% endif %}
+
+{% endblock %}

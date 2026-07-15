@@ -1,0 +1,22 @@
+{
+  "lockfileVersion": 1,
+  "configVersion": 0,
+  "workspaces": {
+    "": {
+      "name": "03-npm",
+      "dependencies": {
+        "sillyname": "^0.1.0",
+        "superheroes": "^4.0.0",
+      },
+    },
+  },
+  "packages": {
+    "sillyname": ["sillyname@0.1.0", "", {}, "sha512-GWA0Zont13ov+cMNw4T7nU4SCyW8jdhD3vjA5+qs8jr+09sCPxOf+FPS5zE0c9pYlCwD+NU/CiMimY462lgG9g=="],
+
+    "superheroes": ["superheroes@4.0.0", "", { "dependencies": { "unique-random-array": "^3.0.0" } }, "sha512-7t1XlXcVOINyeglmHjyFGki70IwSKom3FGkC6ZtWO0NovY9M0L7d48kmZtJMOifFLLC5E5nrCZ5YvlW+Z0KKEA=="],
+
+    "unique-random": ["unique-random@3.0.0", "", {}, "sha512-4vjtE3pH6xO5OmsSmjc6KPgHy2rbCw66BbMRLIyXkuq+WzOKA1oNkqQ+Y7Lh+sE0DrOrWMSpFkivhhzCF7J6HA=="],
+
+    "unique-random-array": ["unique-random-array@3.0.0", "", { "dependencies": { "unique-random": "^3.0.0" } }, "sha512-AETNmMf8dV7VfCu4pM5SO1nKkZZp3lZsbHk9VxkvR2ZjMYy4mzWwzez0g+ZtYIr+RaVH+UN8A003E7woM/ud7Q=="],
+  }
+}

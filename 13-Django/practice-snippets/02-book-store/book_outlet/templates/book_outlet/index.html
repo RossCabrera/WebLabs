@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}All Books{% endblock %}
+{% block meta_description %}Browse our complete collection of books{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'book_outlet/index.css' %}">
+{% endblock %}
+
+{% block content %}
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1>Our Library</h1>
+    <p class="subtitle">Discover great books from around the world</p>
+  </div>
+
+  <!-- Statistics Section -->
+  <div class="stats-section">
+    <div class="stat-card">
+      <div class="stat-icon">📖</div>
+      <div class="stat-content">
+        <span class="stat-value">{{ total_number_of_books }}</span>
+        <span class="stat-label">Total Books</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">⭐</div>
+      <div class="stat-content">
+        <span class="stat-value">
+          {% if average_rating.rating__avg %}
+            {{ average_rating.rating__avg|floatformat:1 }}
+          {% else %}
+            N/A
+          {% endif %}
+        </span>
+        <span class="stat-label">Avg Rating</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Books Grid -->
+  <section class="books-section">
+    {% if books %}
+      <div class="books-grid">
+        {% for book in books %}
+          <article class="book-card">
+            <div class="book-card-header">
+              <h3 class="book-title">{{ book.title }}</h3>
+              {% if book.is_bestseller %}
+                <span class="badge badge-bestseller">Bestseller</span>
+              {% endif %}
+            </div>
+            
+            <div class="book-card-body">
+              <p class="book-author">by {{ book.author }}</p>
+              
+              <div class="book-rating">
+                <span class="rating-stars">
+                  {% for i in "12345" %}
+                    {% if forloop.counter <= book.rating %}
+                      ⭐
+                    {% else %}
+                      ☆
+                    {% endif %}
+                  {% endfor %}
+                </span>
+                <span class="rating-value">({{ book.rating }}/5)</span>
+              </div>
+            </div>
+
+            <div class="book-card-footer">
+              <a href="{{ book.get_absolute_url }}" class="btn btn-primary">
+                View Details
+              </a>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="empty-state">
+        <p>No books found. Check back soon!</p>
+      </div>
+    {% endif %}
+  </section>
+{% endblock %}

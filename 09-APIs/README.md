@@ -70,20 +70,38 @@ APIs act as a **bridge between client and server**, defining how requests and re
 
 ```plaintext
 09-APIs/
-├─ capstone-project/
-│  └─ 01-movie-finder/
-│     ├─ .env
-│     ├─ README.md
-├─ notes/
-│  └─ 01-application-programming-interface.md
-├─ practice-snippets/
-│  ├─ 01-json/
-│  ├─ 02-axios/
-│  ├─ 03-api-auth/
-│  └─ 04-rest-apis/
-└─ project/
-   └─ README
+├── capstone-project/
+│   └── 01-movie-finder/      ← Movie search app powered by OMDb API
+├── notes/
+│   └── 01-application-programming-interface.md
+├── practice-snippets/
+│   ├── 01-json/
+│   ├── 02-axios/
+│   ├── 03-api-auth/
+│   └── 04-rest-apis/
+└── projects/
+    ├── 01-secrets/            ← Password-protected page
+    ├── 02-DIY-API/            ← Jokes REST API with full CRUD
+    └── 03-blog-API/           ← Decoupled blog (API + EJS frontend)
 ```
+
+---
+
+## 🚀 Getting Started
+
+Practice snippets are simple servers — install and run:
+
+```bash
+cd practice-snippets/01-json
+bun install && bun index.js
+```
+
+Some snippets require credentials:
+
+- `03-api-auth` — replace `"HERE_YOUR_API_KEY"` in `index.js` with a key from the relevant API
+- `04-rest-apis` — replace `"HERE_YOUR_BEARER_TOKEN"` with a token from `https://secrets-api.appbrewery.com/register`
+
+Projects have their own READMEs with specific setup instructions — see each project's `README.md`.
 
 ---
 

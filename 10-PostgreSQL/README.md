@@ -186,9 +186,24 @@ It is widely used in production systems ranging from startups to enterprise-scal
 
 ---
 
-## 🚀 Projects
+## 🚀 Getting Started
 
-## 🎯 01 — Flag Quiz
+Both projects require Docker to run a local PostgreSQL database. Each project has its own container on a different port so they don't conflict.
+
+```bash
+cd projects/01-flag-quiz
+docker compose -f docker-compose.dev.yml up -d
+bun install
+bun app.js
+```
+
+See each project's `README.md` for full setup instructions, credentials, and Docker commands.
+
+---
+
+## 🗂️ Projects
+
+### 🎯 01 — Flag Quiz
 
 A quiz game application that:
 
@@ -205,7 +220,7 @@ A quiz game application that:
 
 ---
 
-## 📝 02 — Bucket List App
+### 📝 02 — Bucket List App
 
 A more advanced full-stack CRUD application that includes:
 

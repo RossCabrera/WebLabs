@@ -1,0 +1,39 @@
+{% extends "reviews/base.html" %}
+
+{% block title %}Leave a Review{% endblock %}
+{% block meta_description %}Submit your review and rating for our service.{% endblock %}
+
+{% block content %}
+
+  <!-- ============================================================
+    REVIEW FORM PAGE
+    Uses Django's CreateView + ReviewForm (ModelForm).
+    The form iterates over its fields automatically.
+  ============================================================ -->
+
+  <div class="form-card">
+    <h1>Leave a Review</h1>
+    <p class="subtitle">Share your experience — your feedback matters!</p>
+
+    <!-- NOTE: action="" posts to the same URL ("/"), handled by ReviewView -->
+    <form action="/" method="POST">
+      {% csrf_token %}
+
+      <!-- NOTE: Django iterates form fields - each field renders label + input + errors.
+           The class "form-control" targets our CSS.
+           The "errors" class is added automatically when a field has validation errors. -->
+      {% for field in form %}
+        <div class="form-control {% if field.errors %}errors{% endif %}">
+          {{ field.label_tag }}
+          {{ field }}
+          {{ field.errors }}
+        </div>
+      {% endfor %}
+
+      <button type="submit" class="btn btn-primary mt-3" style="width:100%;">
+        Send Review ✉️
+      </button>
+    </form>
+  </div>
+
+{% endblock %}

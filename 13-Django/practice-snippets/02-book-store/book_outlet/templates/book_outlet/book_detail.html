@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block meta_description %}{{ title }} by {{ author }}{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'book_outlet/book_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <ul>
+      <li><a href="/">All Books</a></li>
+      <li aria-current="page">{{ title }}</li>
+    </ul>
+  </nav>
+
+  <!-- Book Detail Container -->
+  <article class="book-detail">
+    <!-- Book Header -->
+    <div class="book-detail-header">
+      <div class="book-detail-content">
+        <h1 class="book-detail-title">{{ title }}</h1>
+        <p class="book-detail-author">{{ author }}</p>
+        
+        <!-- Rating Section -->
+        <div class="rating-section">
+          <div class="rating-display">
+            <span class="rating-stars">
+              {% for i in "12345" %}
+                {% if forloop.counter <= rating %}
+                  <span class="star-filled">★</span>
+                {% else %}
+                  <span class="star-empty">☆</span>
+                {% endif %}
+              {% endfor %}
+            </span>
+            <span class="rating-text">{{ rating }} out of 5</span>
+          </div>
+
+          <!-- Bestseller Badge -->
+          {% if is_bestseller %}
+            <div class="badge-container">
+              <span class="badge badge-bestseller-lg">✓ Bestseller</span>
+            </div>
+          {% else %}
+            <div class="badge-container">
+              <span class="badge badge-regular">Not a Bestseller</span>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Book Info Card -->
+    <div class="book-info-card">
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Status</span>
+          <span class="info-value">
+            {% if is_bestseller %}
+              <em>Bestseller</em>
+            {% else %}
+              <em>Regular</em>
+            {% endif %}
+          </span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Rating</span>
+          <span class="info-value"><strong>{{ rating }}/5</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="action-section">
+      <a href="/" class="btn btn-secondary">← Back to All Books</a>
+    </div>
+  </article>
+{% endblock %}

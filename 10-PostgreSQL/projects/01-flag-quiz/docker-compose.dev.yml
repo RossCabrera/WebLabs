@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: flag_user
+      POSTGRES_PASSWORD: flag_key!
+      POSTGRES_DB: flag_quiz_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+      - flag_quiz_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U flag_user -d flag_quiz_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  flag_quiz_data:
