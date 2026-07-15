@@ -93,8 +93,28 @@ Modern React is written in **TypeScript**, paired with tools like **Vite**, **Ta
 │   └── 05-hooks-app/
 └── projects/
     ├── 01-heroes-app/
+    │   ├── 01-heroes-app-frontend/
+    │   └── 02-heroes-app-backend/
     └── 02-teslo-shop/
+        ├── 01-teslo-shop-frontend/
+        └── 02-teslo-shop-backend/
 ```
+
+---
+
+## 🚀 Getting Started
+
+Practice snippets are Vite/React apps — install and run:
+
+```bash
+cd practice-snippets/01-reinforcement
+bun install && bun run dev
+```
+
+> `04-gifs-app` requires a Giphy API key — see its `README.md`.
+> For tests in `03-unit-testing`, use `bun run test`.
+
+Projects require both a frontend and backend running together. See each project's `README.md` for full setup instructions.
 
 ---
 

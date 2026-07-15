@@ -34,7 +34,6 @@ export class SeedService {
     const queryBuilder = this.userRepository.createQueryBuilder();
     await queryBuilder
       .delete()
-      .where({})
       .execute()
 
   }
