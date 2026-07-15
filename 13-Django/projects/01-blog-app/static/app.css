@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IM+Fell+English:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --ink: #1a1008;
+  --ink-light: #3d2b1f;
+  --ink-faded: #6b5a4e;
+  --paper: #f4efe4;
+  --paper-dark: #e8dfc8;
+  --paper-aged: #d6c9a8;
+  --rule: #8b7355;
+  --rule-light: #c4a882;
+  --accent: #5c3d1e;
+}
+
+html {
+  background-color: var(--paper-dark);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 27px,
+      rgba(139, 115, 85, 0.07) 27px,
+      rgba(139, 115, 85, 0.07) 28px
+    );
+}
+
+body {
+  font-family: 'Libre Baskerville', 'Georgia', serif;
+  background-color: var(--paper);
+  color: var(--ink);
+  max-width: 1100px;
+  margin: 0 auto;
+  border-left: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+  min-height: 100vh;
+}
+
+/* ─── HEADER / MASTHEAD ─── */
+#main-navigation {
+  background-color: var(--paper);
+  border-bottom: 3px double var(--ink);
+  padding: 0.5rem 2rem 0;
+  text-align: center;
+}
+
+#main-navigation::before {
+  content: '✦ ✦ ✦';
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.5rem;
+  color: var(--ink-faded);
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--rule-light);
+  margin-bottom: 0.5rem;
+}
+
+#main-navigation h1 {
+  font-family: 'UnifrakturMaguntia', cursive;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--ink);
+}
+
+#main-navigation h1 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#main-navigation nav {
+  border-top: 1px solid var(--rule-light);
+  border-bottom: 2px solid var(--ink);
+  padding: 0.35rem 0;
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+#main-navigation nav a {
+  font-family: 'IM Fell English', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+#main-navigation nav a:hover {
+  color: var(--accent);
+}
+
+/* ─── IMAGES — B&W ─── */
+img {
+  filter: grayscale(100%) contrast(1.1) brightness(0.95) sepia(10%);
+  display: block;
+}
+
+/* ─── LINKS ─── */
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* ─── ORNAMENTAL RULE UTILITY ─── */
+.ornament {
+  text-align: center;
+  color: var(--rule);
+  font-size: 1rem;
+  letter-spacing: 0.6rem;
+  margin: 1.2rem 0;
+}

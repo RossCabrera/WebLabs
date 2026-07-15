@@ -76,7 +76,28 @@ It handles routing, middleware, and HTTP utilities, making server-side JavaScrip
 │   ├── 03-postman/
 │   └── 04-middleware/
 ├── project/
+│   └── 01-secrets/
 └── README.md
+```
+
+---
+
+## 🚀 Getting Started
+
+All snippets and the project follow the same pattern — install dependencies then start the server:
+
+```bash
+cd practice-snippets/01-express-server
+bun install && bun index.js
+```
+
+Repeat for each snippet. The server runs on `http://localhost:3000` by default.
+
+```bash
+# Secrets project — password-protected page
+cd project/01-secrets
+bun install && bun index.js
+# Visit http://localhost:3000 and enter: ILoveProgramming
 ```
 
 ---

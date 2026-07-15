@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- NOTE: meta description helps with SEO - each page can override this block -->
+  <meta name="description" content="{% block meta_description %}A Django learning app for managing reviews and user profiles.{% endblock %}">
+
+  <title>{% block title %}ReviewApp{% endblock %} | ReviewApp</title>
+
+  <!-- Global stylesheet - lives in reviews/static/reviews/style.css -->
+  <link rel="stylesheet" href="{% static 'reviews/style.css' %}">
+
+  <!-- Allow child templates to inject extra <head> content (e.g. page-specific CSS) -->
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+  <!-- ============================================================
+    NAVIGATION BAR
+    Links to all major sections of the app.
+    Sticky + glassmorphism blur effect via CSS.
+  ============================================================ -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <!-- Brand / logo - links to the homepage (review form) -->
+      <a href="/" class="navbar-brand">Review<span>App</span></a>
+
+      <ul class="navbar-links">
+        <li><a href="/">Leave a Review</a></li>
+        <li><a href="/reviews">All Reviews</a></li>
+        <li><a href="/profiles/">Create Profile</a></li>
+        <li><a href="/profiles/list">All Profiles</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+    MAIN CONTENT AREA
+    Child templates fill in this block.
+    .page-wrapper centers and pads the content.
+  ============================================================ -->
+  <main class="page-wrapper">
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <!-- Allow child templates to inject scripts at the bottom -->
+  {% block extra_scripts %}{% endblock %}
+
+</body>
+</html>

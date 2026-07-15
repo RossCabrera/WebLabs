@@ -18,6 +18,7 @@ router.get("/quiz", async (req, res) => {
         SELECT c.id, c.country, c.capital, f.flag
         FROM capitals c
         JOIN flags f ON f.name = c.country
+        WHERE c.capital IS NOT NULL
         ORDER BY RANDOM()
         LIMIT 1
     `);
@@ -27,7 +28,7 @@ router.get("/quiz", async (req, res) => {
     const wrongAnswers = await db.query(
       `
       SELECT capital FROM capitals
-      WHERE id != $1
+      WHERE id != $1 AND capital IS NOT NULL
       ORDER BY RANDOM()
       LIMIT 3
     `,

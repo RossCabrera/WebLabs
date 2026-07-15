@@ -1,0 +1,50 @@
+<!-- NOTE: Profiles templates extend reviews/base.html so they share the same
+     navbar, CSS, and layout — keeping the whole app visually consistent.
+     Since "reviews" is in INSTALLED_APPS, its static/templates are globally available. -->
+{% extends "reviews/base.html" %}
+{% load static %}
+
+{% block title %}Create Profile{% endblock %}
+{% block meta_description %}Upload a profile image to create your user profile.{% endblock %}
+
+{% block content %}
+
+  <!-- ============================================================
+    CREATE PROFILE PAGE
+    Powered by CreateProfileView (CreateView).
+    The model is UserProfile with a single ImageField (upload_to="images").
+
+    NOTE: enctype="multipart/form-data" is REQUIRED for file uploads.
+    Without it, Django receives no file data (request.FILES will be empty).
+
+    Django's MEDIA_ROOT = BASE_DIR / "uploads" handles where files land.
+    MEDIA_URL = "/user_media/" is the URL prefix to serve them.
+  ============================================================ -->
+
+  <div class="form-card">
+    <h1>Create a Profile</h1>
+    <p class="subtitle">Upload your profile image to get started.</p>
+
+    <!-- action="" posts to /profiles/ — handled by CreateProfileView.
+         enctype is critical for file uploads! -->
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <!-- NOTE: When using CreateView with fields="__all__", Django renders
+           the ImageField automatically. The form is iterated the same
+           way as in review.html. -->
+      {% for field in form %}
+        <div class="form-control {% if field.errors %}errors{% endif %}">
+          {{ field.label_tag }}
+          {{ field }}
+          {{ field.errors }}
+        </div>
+      {% endfor %}
+
+      <button type="submit" class="btn btn-primary mt-3" style="width:100%;">
+        Upload Profile 📤
+      </button>
+    </form>
+  </div>
+
+{% endblock %}

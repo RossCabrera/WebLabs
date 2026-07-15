@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "challenges/challenges.css" %}">
+<link rel="stylesheet" href="{% static "challenges/include/header.css" %}">
+{% endblock  %}
+
+{% block page_title %}
+Something went wrong - we could not find that page
+{% endblock  %}
+
+{% block content %}
+
+<div class="error-page">
+    <h1>We could not find that page</h1>
+    <p>Sorry about that. Please check the URL and try again.</p>
+</div>
+{% endblock  %}

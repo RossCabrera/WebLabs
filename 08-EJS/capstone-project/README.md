@@ -105,6 +105,18 @@ Design inspiration:
 
 ---
 
+## 🚀 Getting Started
+
+```bash
+cd blog-app
+bun install
+bun server.js
+```
+
+Visit `http://localhost:3000` to use the app. Posts are stored in memory and reset on server restart.
+
+---
+
 ## 📌 Notes
 
 - ❌ No database is used in this project  

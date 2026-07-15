@@ -1,0 +1,95 @@
+/* ─── POST CARD (used in index & all-posts) ─── */
+.post {
+  border-right: 1px solid var(--rule-light);
+}
+
+.post:last-child {
+  border-right: none;
+}
+
+.post a {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
+.post a:hover .post__content h3 {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.post img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.15) brightness(0.9) sepia(12%);
+  border-bottom: 1px solid var(--rule-light);
+}
+
+.post__content {
+  padding: 1rem 1.1rem 1.2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.post__content h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.post__content p {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--ink-faded);
+  text-align: justify;
+  hyphens: auto;
+  flex: 1;
+}
+
+.post__content::after {
+  content: '— ◆ —';
+  font-size: 0.7rem;
+  color: var(--rule);
+  letter-spacing: 0.3rem;
+  text-align: center;
+  display: block;
+  margin-top: auto;
+  padding-top: 0.8rem;
+}
+
+/* ─── POST TAGS (Card Version) ─── */
+.post__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--rule-light);
+}
+
+.tag {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+  border: 1px solid var(--rule);
+  padding: 0.35rem 0.65rem;
+  background-color: var(--paper-aged);
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  color: var(--ink);
+  border-color: var(--ink-faded);
+  background-color: var(--paper);
+}

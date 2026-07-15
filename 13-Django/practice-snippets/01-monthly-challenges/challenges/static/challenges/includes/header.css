@@ -1,0 +1,44 @@
+/* ── Site header / nav ─────────────────────────────────────── */
+header {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header nav {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+header nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--brand-purple);
+  text-decoration: none;
+  padding: 0.45rem 1rem;
+  border-radius: 100px;
+  border: 1.5px solid transparent;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+header nav a::before {
+  content: '←';
+  font-size: 0.95rem;
+}
+
+header nav a:hover {
+  background: var(--brand-purple-light);
+  border-color: rgba(127, 119, 221, 0.25);
+}

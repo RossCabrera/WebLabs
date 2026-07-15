@@ -1,0 +1,158 @@
+/* ─── POST DETAIL PAGE ─── */
+
+/* Summary / Hero */
+#summary {
+  border-bottom: 3px double var(--ink);
+  padding: 2rem 2rem 1.5rem;
+  text-align: center;
+}
+
+#summary h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  line-height: 1.2;
+  color: var(--ink);
+  max-width: 740px;
+  margin: 0 auto 0.5rem;
+}
+
+#summary article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+#summary article img {
+  width: 100%;
+  max-height: 460px;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.18) brightness(0.88) sepia(15%);
+  border: 1px solid var(--rule);
+  margin-bottom: 0.8rem;
+}
+
+#summary address {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--ink-faded);
+  letter-spacing: 0.04em;
+}
+
+#summary address::before {
+  content: '— Written by ';
+}
+
+#summary div {
+  font-family: 'IM Fell English', serif;
+  font-size: 0.8rem;
+  color: var(--rule);
+  letter-spacing: 0.06em;
+}
+
+/* Ornamental separator */
+#summary::after {
+  content: '✦ ✦ ✦';
+  display: block;
+  text-align: center;
+  color: var(--rule);
+  font-size: 0.8rem;
+  letter-spacing: 0.6rem;
+  margin-top: 1.2rem;
+}
+
+/* ─── POST TAGS ─── */
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--rule-light);
+}
+
+.post-tag {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+  border: 1px solid var(--rule);
+  padding: 0.4rem 0.75rem;
+  background-color: var(--paper-aged);
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.post-tag:hover {
+  color: var(--ink);
+  border-color: var(--ink-faded);
+  background-color: var(--paper);
+  box-shadow: 0 1px 3px rgba(26, 16, 8, 0.08);
+}
+
+/* ─── ARTICLE BODY ─── */
+main {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 4rem;
+  column-count: 2;
+  column-gap: 2.5rem;
+  column-rule: 1px solid var(--rule-light);
+}
+
+main p {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.94rem;
+  line-height: 1.85;
+  color: var(--ink-light);
+  text-align: justify;
+  hyphens: auto;
+  margin-bottom: 1rem;
+}
+
+/* Drop cap for opening paragraph */
+main p:first-of-type::first-letter {
+  font-family: 'UnifrakturMaguntia', cursive;
+  font-size: 4.2rem;
+  float: left;
+  line-height: 0.7;
+  margin: 0.12rem 0.35rem 0 0;
+  color: var(--ink);
+  padding-right: 4px;
+}
+
+/* ─── FOOTER / COLOPHON ─── */
+main::after {
+  content: '— ◆  The End  ◆ —';
+  display: block;
+  column-span: all;
+  text-align: center;
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--rule);
+  letter-spacing: 0.3rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule-light);
+}
+
+@media (max-width: 620px) {
+  main {
+    column-count: 1;
+  }
+  
+  .post-tags {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .post-tag {
+    width: fit-content;
+  }
+}

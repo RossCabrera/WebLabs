@@ -1,0 +1,110 @@
+/* ─── ALL POSTS PAGE ─── */
+#all-posts {
+  padding: 2rem 2rem 3rem;
+}
+
+#all-posts h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 900;
+  color: var(--ink);
+  text-align: center;
+  margin-bottom: 0.3rem;
+}
+
+#all-posts h2::after {
+  content: '';
+  display: block;
+  height: 3px;
+  background: linear-gradient(to right, transparent, var(--ink), transparent);
+  margin: 0.5rem auto 0;
+  width: 60%;
+}
+
+#all-posts > p.dateline,
+#all-posts .edition-info {
+  text-align: center;
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 0.82rem;
+  color: var(--ink-faded);
+  margin-bottom: 2rem;
+  letter-spacing: 0.04em;
+}
+
+/* Masthead rule under section title */
+#all-posts::before {
+  content: '◆ All Dispatches & Correspondence ◆';
+  display: block;
+  text-align: center;
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--ink-faded);
+  letter-spacing: 0.06em;
+  padding-bottom: 1.2rem;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 2rem;
+}
+
+#all-posts > ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0;
+  border: 1px solid var(--rule);
+}
+
+#all-posts > ul li {
+  border-bottom: 1px solid var(--rule-light);
+  border-right: 1px solid var(--rule-light);
+}
+
+#all-posts > ul li:nth-child(3n) {
+  border-right: none;
+}
+
+/* Force first item to span full width as "headline story" */
+#all-posts > ul li:first-child {
+  grid-column: 1 / -1;
+  border-right: none;
+}
+
+#all-posts > ul li:first-child .post {
+  flex-direction: row;
+}
+
+#all-posts > ul li:first-child .post a {
+  flex-direction: row;
+}
+
+#all-posts > ul li:first-child .post img {
+  width: 45%;
+  aspect-ratio: 16 / 10;
+  border-bottom: none;
+  border-right: 1px solid var(--rule-light);
+}
+
+#all-posts > ul li:first-child .post__content {
+  padding: 1.5rem 2rem;
+}
+
+#all-posts > ul li:first-child .post__content h3 {
+  font-size: 1.7rem;
+  line-height: 1.25;
+}
+
+#all-posts > ul li:first-child .post__content p {
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  #all-posts > ul li:first-child .post a {
+    flex-direction: column;
+  }
+  #all-posts > ul li:first-child .post img {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--rule-light);
+  }
+}
